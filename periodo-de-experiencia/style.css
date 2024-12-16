@@ -139,3 +139,12 @@ input[type="submit"]:hover{
     background-color: #3aac7a;
     transform:scale(.97);
 }
+
+.boas-vindas span{
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
