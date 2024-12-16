@@ -1,0 +1,141 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --roxo-forte-ctblz: #2C0139;
+    --roxo-ctblz: #5B2765;
+    --roxo-claro-ctblz: #963CBD;
+    --verde-agua-ctblz: #48D597;
+    --verde-claro-ctblz: #ECFAEA;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:  "Noto Sans", sans-serif;
+}
+
+h1, h2, p, h3, label, input{
+    color: #fff;
+}
+
+.informacoes-funcionario,
+.informacao-colaborador{
+    display: flex;
+    flex-direction: column;
+}
+
+.informacoes-funcionario label,
+.informacao-colaborador label{
+    margin-bottom: .3rem;
+}
+
+.informacao-colaborador label{
+    margin-top: 1rem;
+}
+
+input[type="text"]{
+    background-color: transparent;
+    padding: .5rem .7rem;
+    outline: none;
+    border: 2px solid var(--verde-agua-ctblz);
+    border-radius: 1rem;
+    text-transform: uppercase;
+}
+
+input::placeholder{
+    color: #ffffffb9;
+}
+
+form {
+    max-width: 650px;
+    margin: 0 auto;
+    background-color: #242424cc;
+    padding: 1.75rem;
+    border-radius: 2rem;
+}
+
+p{
+    font-size: .9rem;
+}
+
+.content{
+    background-image: url("images/fundo-do-formulário-3x.png");
+    background-size: cover;
+    padding: 1rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.h2-fat{
+    text-transform: uppercase;
+    margin: 2.5rem 0 1rem 0;
+    text-align: center;
+}
+
+.h2-color{
+    color: var(--verde-agua-ctblz);
+}
+
+.all-ask{
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+    margin-bottom: 1.2rem;
+}
+
+textarea{
+    padding: .5rem;
+    outline: none;
+    border-radius: 0 1.5rem;
+    border: 5px solid var(--verde-agua-ctblz);
+}
+
+select{
+    border: none;
+    outline: none;
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
+.aspectos,
+.classificacao{
+    display: flex;
+    flex-direction: column;
+    gap: .85rem;
+    margin-bottom: 1rem;
+}
+
+.classificacao,
+.sec-conclusao{
+    gap: .4rem;
+}
+
+.sec-conclusao{
+    display: flex;
+    flex-direction: column;
+}
+
+
+input[type="submit"]{
+    display: block;
+    width: 100%;
+    margin-top: 1.5rem;
+    background-color: var(--verde-agua-ctblz);
+    padding: .75rem;
+    cursor: pointer;
+    transition: .3s linear;
+    border: none;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+}
+
+input[type="submit"]:hover{
+    background-color: #3aac7a;
+    transform:scale(.97);
+}
