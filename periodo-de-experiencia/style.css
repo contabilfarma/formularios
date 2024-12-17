@@ -61,7 +61,8 @@ p{
     font-size: .9rem;
 }
 
-.content{
+.content,
+.content-sucess{
     background-image: url("images/fundo-do-formulário-3x.png");
     background-size: cover;
     padding: 1rem;
@@ -171,4 +172,24 @@ input[type="submit"]:hover{
         transform: scale(1.05);
         opacity: .9;
     }
+}
+
+.p-sucess{
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: #fff;
+    padding: 1rem;
+    max-width: 650px;
+    line-height: 2.3rem;
+    font-size: 1.2rem;
+    border-radius: 1.2rem 0;
+    box-shadow: 1px 1px 10px 10px #61616175;
+}
+
+.content-sucess{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

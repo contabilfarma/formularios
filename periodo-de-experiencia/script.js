@@ -1,7 +1,7 @@
 const data = new Date()
 const hora = data.getHours()
 
-const nome = prompt('Digite seu nome')
+const nome = prompt('Digite seu nome:')
 
 const secao = document.querySelector('.boas-vindas')
  if(hora >= 6 && hora < 12){
