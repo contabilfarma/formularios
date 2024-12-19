@@ -23,9 +23,16 @@
 
                 <p class="p-header">Preencha todos os campos com atenção e seriedade!!</p>
 
+                <section class="lider">
+                    <label for="nome">Nome do líder:</label>
+                    <input type="text" name="nome-lider" placeholder="digite o seu nome..." required>
+                </section>
+
+                <hr>
+
                 <section class="informacoes-funcionario">
                     <label for="name">Nome do colaborador:</label>
-                    <input type="text" name="nome" required placeholder="Digite o nome do colaborador...">
+                    <input type="text" name="nome-colaborador" required placeholder="Digite o nome do colaborador...">
                     <section class="informacao-colaborador">
                         <label for="cargo">Cargo ocupado:</label>
                         <input type="text" name="cargo" required placeholder="Digite o cargo do colaborador...">
@@ -33,6 +40,8 @@
                         <input type="text" name="setor" required placeholder="Digite o setor do colaborador...">
                     </section>
                 </section>
+
+                <hr>
     
                 <section class="title">
                     <h2 class="h2-fat">Fato<strong class="h2-color">re</strong>s Ger<strong class="h2-color">ai</strong>s</h2>
@@ -147,7 +156,7 @@
     
                 <section class="sec-conclusao">
                     <h3>Conclusão para com o colaborador?</h3>
-                    <select name="conclusao" required>
+                    <select name="select-conclusao" required>
                         <option value="selecione" disabled selected>Selecione uma das opções</option>
                         <option value="demitir">Demitir</option>
                         <option value="efetivar">Efetivar</option>
