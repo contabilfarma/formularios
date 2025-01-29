@@ -69,6 +69,7 @@
             </div>
             <label for="repasse">(%) Valor do repasse:</label>
             <input type="number" min="0" name="repasse" id="repasse" required>
+            <input type="month" name="competencia" id="competencia" required>
             <button type="submit">Enviar</button>
         </form>
     </div>
@@ -111,6 +112,7 @@
                 email: formData.get("email"),
                 unidade: formData.get("unidade"),
                 repasse: formData.get("repasse"),
+                competencia: formData.get("competencia")
             };
 
 
