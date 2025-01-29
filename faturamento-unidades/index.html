@@ -67,8 +67,8 @@
                 <input type="radio" name="unidade" id="vv">
                 <label for="vv">Vila Velha - ES</label>
             </div>
-            <label for="repas">(%) Valor do repasse:</label>
-            <input type="number" min="0" name="repas" id="repas">
+            <label for="repasse">(%) Valor do repasse:</label>
+            <input type="number" min="0" name="repasse" id="repasse">
             <button type="submit">Enviar</button>
         </form>
     </div>
@@ -110,7 +110,7 @@
                 name: formData.get("name"),
                 email: formData.get("email"),
                 unidade: formData.get("unidade"),
-                repasse: formData.get("repas")
+                repasse: formData.get("repasse"),
             };
 
             try {
