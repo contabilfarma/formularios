@@ -9,8 +9,8 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        form {
-            display: flex;
+        #password-container, #form-container {
+            display: none;
             flex-direction: column;
             max-width: 400px;
         }
@@ -35,16 +35,56 @@
 </head>
 <body>
     <h1>Formulário para Google Sheets</h1>
-    <form id="form">
-        <label for="name">Nome:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <button type="submit">Enviar</button>
-    </form>
+
+    <!-- Container da Senha -->
+    <div id="password-container" style="display: flex;">
+        <label for="password">Digite a senha para acessar:</label>
+        <input type="password" id="password" placeholder="Digite a senha">
+        <button id="submit-password">Acessar</button>
+        <p id="error-message" style="color: red; display: none;">Senha incorreta. Tente novamente.</p>
+    </div>
+
+    <!-- Container do Formulário -->
+    <div id="form-container">
+        <form id="form">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
 
     <script>
-        document.getElementById("form").addEventListener("submit", async function(e) {
+        // Define a senha correta
+        const correctPassword = "C0nt4b1l1z3@"; // Altere para a senha que desejar
+
+        // Elementos da página
+        const passwordContainer = document.getElementById("password-container");
+        const formContainer = document.getElementById("form-container");
+        const passwordInput = document.getElementById("password");
+        const submitPasswordButton = document.getElementById("submit-password");
+        const errorMessage = document.getElementById("error-message");
+
+        // Exibe o campo de senha ao carregar a página
+        passwordContainer.style.display = "flex";
+
+        // Valida a senha ao clicar no botão "Acessar"
+        submitPasswordButton.addEventListener("click", () => {
+            const enteredPassword = passwordInput.value;
+
+            if (enteredPassword === correctPassword) {
+                // Senha correta - exibe o formulário
+                passwordContainer.style.display = "none";
+                formContainer.style.display = "flex";
+            } else {
+                // Senha incorreta - exibe mensagem de erro
+                errorMessage.style.display = "block";
+            }
+        });
+
+        // Lógica do formulário
+        document.getElementById("form").addEventListener("submit", async function (e) {
             e.preventDefault();
 
             const formData = new FormData(e.target);
@@ -58,7 +98,7 @@
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data),
-                    mode: "no-cors" // Modo para evitar bloqueio de CORS
+                    mode: "no-cors"
                 });
 
                 alert("Dados enviados com sucesso!");
