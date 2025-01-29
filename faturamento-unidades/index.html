@@ -21,6 +21,7 @@
             margin: 5px 0;
             padding: 10px;
             font-size: 1rem;
+            display: block;
         }
         button {
             background-color: #4CAF50;
@@ -30,6 +31,14 @@
         }
         button:hover {
             background-color: #45a049;
+        }
+        .radio{
+            display: flex;
+            align-items: center;
+            flex-direction: center;
+        }
+        .radio label{
+            margin: 0 1rem 0 8px;
         }
     </style>
 </head>
@@ -51,12 +60,21 @@
             <input type="text" id="name" name="name" required>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
+            <label for="unidade">Qual unidade deseja laçar o valor?</label>
+            <div class="radio">
+                <input type="radio" name="unidade" id="castelo">
+                <label for="castelo">Castelo - ES</label>
+                <input type="radio" name="unidade" id="vv">
+                <label for="vv">Vila Velha - ES</label>
+            </div>
+            <label for="repas">(%) Valor do repasse:</label>
+            <input type="number" min="0" name="repas">
             <button type="submit">Enviar</button>
         </form>
     </div>
 
     <script>
-        // Define a senha correta
+        //Define a senha correta
         const correctPassword = "C0nt4b1l1z3@"; // Altere para a senha que desejar
 
         // Elementos da página
@@ -90,7 +108,9 @@
             const formData = new FormData(e.target);
             const data = {
                 name: formData.get("name"),
-                email: formData.get("email")
+                email: formData.get("email"),
+                unidade: formData.get("unidade"),
+                repasse: formData.get("repas")
             };
 
             try {
