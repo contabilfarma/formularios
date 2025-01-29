@@ -113,6 +113,10 @@
                 repasse: formData.get("repasse"),
             };
 
+
+            console.log("Dados enviados:", data)
+
+
             try {
                 await fetch("https://script.google.com/macros/s/AKfycbzv8mAOwM6ewlZbsorGHIKDaxk9p77nNspwbiGE-BPIxrOs-iAIGh8kwDDD9yR8mXog0w/exec", { // Substitua pela URL correta
                     method: "POST",
