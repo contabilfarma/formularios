@@ -4,136 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário para Google Sheets</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        #password-container, #form-container {
-            display: none;
-            flex-direction: column;
-            max-width: 400px;
-        }
-        label {
-            margin: 5px 0;
-        }
-        input, button {
-            margin: 5px 0;
-            padding: 10px;
-            font-size: 1rem;
-            display: block;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .radio{
-            display: flex;
-            align-items: center;
-            flex-direction: center;
-        }
-        .radio label{
-            margin: 0 1rem 0 8px;
-        }
-    </style>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
-    <h1>Formulário para Google Sheets</h1>
+    <h1>Lançamento de Faturamento</h1>
 
-    <!-- Container da Senha -->
-    <div id="password-container" style="display: flex;">
-        <label for="password">Digite a senha para acessar:</label>
-        <input type="password" id="password" placeholder="Digite a senha">
-        <button id="submit-password">Acessar</button>
-        <p id="error-message" style="color: red; display: none;">Senha incorreta. Tente novamente.</p>
+    <div id="password-container" class="section-pass">
+        <section class="style-pass">
+            <section class="login-pass">
+                <p class="boas-vindas">Olá! Seja bem-vindo(a) <br> Digite a senha para <br> acessar ao painel ;)</p>
+                <span class="input-pass">
+                    <input type="password" id="password" placeholder="Digite a senha">
+                    <i onclick="showPass()" class="fa-regular fa-eye"></i>
+                </span>
+                <button id="submit-password">Acessar</button>
+                <span id="error-message" style="color: #c20000; display: none; margin: 0; font-size: .9rem; padding: 0;font-weight: 600;">Senha incorreta. Tente novamente.</span>
+            </section>
+            
+            <picture>
+                <img src="images/transferencia.svg" alt="transferencia SVG">
+            </picture>
+        </section>
     </div>
 
-    <!-- Container do Formulário -->
     <div id="form-container">
-        <form id="form">
-            <label for="name">Nome:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+        <form id="form">      
             <label for="unidade">Qual unidade deseja laçar o valor?</label>
             <div class="radio">
-                <input type="radio" name="unidade" id="castelo" value="Castelo - ES">
-                <label for="castelo">Castelo - ES</label>
-                <input type="radio" name="unidade" id="vv" value="Vila Velha - ES">
-                <label for="vv">Vila Velha - ES</label>
+                <span>
+                    <input type="radio" name="unidade" id="castelo" value="Castelo - ES" checked>
+                    <label for="castelo">Castelo - ES</label>
+                </span>
+                <span>
+                    <input type="radio" name="unidade" id="vv" value="Vila Velha - ES">
+                    <label for="vv">Vila Velha - ES</label>
+                </span>
+                <span>
+                    <input type="radio" name="unidade" id="cachoeiro" value="Cachoeiro de Itapemirim - ES">
+                    <label for="cachoeiro">Cachoeiro de Itapemirim - ES</label>
+                </span>
+                <span>
+                    <input type="radio" name="unidade" id="guacui" value="Guaçuí - ES">
+                    <label for="guacui">Guaçuí - ES</label>
+                </span>
+                <span>
+                    <input type="radio" name="unidade" id="linhares" value="Linhares - ES">
+                    <label for="linhares">Linhares - ES</label>
+                </span>
+                <span>
+                    <input type="radio" name="unidade" id="rj" value="Rio de Janeiro - RJ">
+                    <label for="rj">Rio de Janeiro - RJ</label>
+                </span>
             </div>
+            <label for="fat">Faturamento da Unidade:</label>
+            <section class="faturamento">
+                <input type="number" id="fat" name="fat" required min="0">
+            </section>
             <label for="repasse">(%) Valor do repasse:</label>
             <input type="number" min="0" name="repasse" id="repasse" required>
+            <label for="competencia">Valor referente a:</label>
             <input type="month" name="competencia" id="competencia" required>
             <button type="submit">Enviar</button>
         </form>
     </div>
 
-    <script>
-        //Define a senha correta
-        const correctPassword = "C0nt4b1l1z3@"; // Altere para a senha que desejar
-
-        // Elementos da página
-        const passwordContainer = document.getElementById("password-container");
-        const formContainer = document.getElementById("form-container");
-        const passwordInput = document.getElementById("password");
-        const submitPasswordButton = document.getElementById("submit-password");
-        const errorMessage = document.getElementById("error-message");
-
-        // Exibe o campo de senha ao carregar a página
-        passwordContainer.style.display = "flex";
-
-        // Valida a senha ao clicar no botão "Acessar"
-        submitPasswordButton.addEventListener("click", () => {
-            const enteredPassword = passwordInput.value;
-
-            if (enteredPassword === correctPassword) {
-                // Senha correta - exibe o formulário
-                passwordContainer.style.display = "none";
-                formContainer.style.display = "flex";
-            } else {
-                // Senha incorreta - exibe mensagem de erro
-                errorMessage.style.display = "block";
-            }
-        });
-
-        // Lógica do formulário
-        document.getElementById("form").addEventListener("submit", async function (e) {
-            e.preventDefault();
-
-            const formData = new FormData(e.target);
-            const data = {
-                name: formData.get("name"),
-                email: formData.get("email"),
-                unidade: formData.get("unidade"),
-                repasse: formData.get("repasse"),
-                competencia: formData.get("competencia")
-            };
-
-
-            console.log("Dados enviados:", data)
-
-
-            try {
-                await fetch("https://script.google.com/macros/s/AKfycbzv8mAOwM6ewlZbsorGHIKDaxk9p77nNspwbiGE-BPIxrOs-iAIGh8kwDDD9yR8mXog0w/exec", { // Substitua pela URL correta
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(data),
-                    mode: "no-cors"
-                });
-
-                alert("Dados enviados com sucesso!");
-                form.reset();
-            } catch (error) {
-                console.error(error);
-                alert("Erro ao enviar os dados.");
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
