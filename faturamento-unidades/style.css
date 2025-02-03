@@ -55,9 +55,8 @@ h1{
     align-items: center;
     justify-content: center;
     gap: 2.5rem;
-    padding: 1rem;
+    padding: 1.3rem;
     background-color: #e4e4e45d;
-    border-radius: 1rem;
     box-shadow: 5px 5px 10px 1px #b8b8b8be;
 }
 
@@ -167,7 +166,7 @@ input[type="month"]{
 #form{
     display: flex;
     padding: 2rem;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
     box-shadow: 5px 5px 10px 1px #b8b8b8be;
     background-color: #e4e4e45d;
     gap: 5rem;
@@ -243,4 +242,8 @@ input[type="radio"]{
     position: absolute;
     top: -110px;
     right: -100px;
+}
+
+.section-pass{
+    border-radius: 1.5rem;
 }
