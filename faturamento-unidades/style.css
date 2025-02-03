@@ -206,13 +206,14 @@ form >
 input[type="text"],
 input[type="number"],
 input[type="month"]{
-    margin-top: -8px;
+    margin-top: -9px;
     box-shadow: 1px 1px 1px 1px #b1b1b1;
 }
 
 .faturamento > input[type="text"]{
     box-shadow: 1px 1px 1px 1px #b1b1b1;
     padding: .7rem;
+    margin-top: -9px;
 }
 
 .faturamento > input[type="text"]:focus{
