@@ -70,3 +70,21 @@ function showPass(){
     }
 }
 
+
+const input = document.getElementById('fat');
+
+    input.addEventListener('input', function (e) {
+      let value = e.target.value;
+
+      // Remove qualquer caractere que não seja número
+      value = value.replace(/\D/g, "");
+
+      // Adiciona os centavos automaticamente
+      value = (value / 100).toFixed(2) + "";
+
+      // Adiciona ponto para milhar e vírgula para decimal
+      value = value.replace(".", ",");
+      value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+      e.target.value = value;
+    });

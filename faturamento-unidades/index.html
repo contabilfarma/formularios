@@ -10,12 +10,12 @@
 
 </head>
 <body>
-    <h1>Lançamento de Faturamento</h1>
+    <h1>Lançamento de <strong class="color-style">Faturamento</strong></h1>
 
     <div id="password-container" class="section-pass">
         <section class="style-pass">
             <section class="login-pass">
-                <p class="boas-vindas">Olá! Seja bem-vindo(a) <br> Digite a senha para <br> acessar ao painel ;)</p>
+                <p class="boas-vindas">Olá! Seja bem-vindo(a) <br> Digite a <span class="color-style">senha</span> para <br> acessar ao painel ;)</p>
                 <span class="input-pass">
                     <input type="password" id="password" placeholder="Digite a senha">
                     <i onclick="showPass()" class="fa-regular fa-eye"></i>
@@ -31,44 +31,50 @@
     </div>
 
     <div id="form-container">
-        <form id="form">      
-            <label for="unidade">Qual unidade deseja laçar o valor?</label>
-            <div class="radio">
-                <span>
-                    <input type="radio" name="unidade" id="castelo" value="Castelo - ES" checked>
-                    <label for="castelo">Castelo - ES</label>
-                </span>
-                <span>
-                    <input type="radio" name="unidade" id="vv" value="Vila Velha - ES">
-                    <label for="vv">Vila Velha - ES</label>
-                </span>
-                <span>
-                    <input type="radio" name="unidade" id="cachoeiro" value="Cachoeiro de Itapemirim - ES">
-                    <label for="cachoeiro">Cachoeiro de Itapemirim - ES</label>
-                </span>
-                <span>
-                    <input type="radio" name="unidade" id="guacui" value="Guaçuí - ES">
-                    <label for="guacui">Guaçuí - ES</label>
-                </span>
-                <span>
-                    <input type="radio" name="unidade" id="linhares" value="Linhares - ES">
-                    <label for="linhares">Linhares - ES</label>
-                </span>
-                <span>
-                    <input type="radio" name="unidade" id="rj" value="Rio de Janeiro - RJ">
-                    <label for="rj">Rio de Janeiro - RJ</label>
-                </span>
-            </div>
-            <label for="fat">Faturamento da Unidade:</label>
-            <section class="faturamento">
-                <input type="number" id="fat" name="fat" required min="0">
+        <form id="form" autocomplete="off">      
+            <section class="formulario-style">
+                <label for="unidade">1. Qual unidade deseja laçar o valor?</label>
+                <div class="radio">
+                    <span>
+                        <input type="radio" name="unidade" id="castelo" value="Castelo - ES" checked>
+                        <label for="castelo">Castelo - ES</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="unidade" id="vv" value="Vila Velha - ES">
+                        <label for="vv">Vila Velha - ES</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="unidade" id="cachoeiro" value="Cachoeiro de Itapemirim - ES">
+                        <label for="cachoeiro">Cachoeiro de Itapemirim - ES</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="unidade" id="guacui" value="Guaçuí - ES">
+                        <label for="guacui">Guaçuí - ES</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="unidade" id="linhares" value="Linhares - ES">
+                        <label for="linhares">Linhares - ES</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="unidade" id="rj" value="Rio de Janeiro - RJ">
+                        <label for="rj">Rio de Janeiro - RJ</label>
+                    </span>
+                </div>
+                <label for="fat">2. Faturamento da Unidade:</label>
+                <section class="faturamento">
+                    <input type="text" id="fat" name="fat" required min="0">
+                </section>
+                <label for="repasse">3. (%) Valor do repasse:</label>
+                <input type="number" min="0" name="repasse" id="repasse" required>
+                <label for="competencia">4. Valor referente a:</label>
+                <input type="month" name="competencia" id="competencia" required>
+                <button type="submit">Enviar</button>
             </section>
-            <label for="repasse">(%) Valor do repasse:</label>
-            <input type="number" min="0" name="repasse" id="repasse" required>
-            <label for="competencia">Valor referente a:</label>
-            <input type="month" name="competencia" id="competencia" required>
-            <button type="submit">Enviar</button>
-        </form>
+
+            <section class="image-enterprise">
+                <img src="images/empresa.svg" alt="Imagem Empresa">
+            </section>
+        </form>     
     </div>
 
     <script src="script.js"></script>
