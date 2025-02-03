@@ -68,6 +68,11 @@ h1{
     gap: 1rem;
 }
 
+.section-pass{
+    position: relative;
+    overflow: hidden;
+}
+
 .section-pass img{
     max-width: 300px;
 }
@@ -166,6 +171,8 @@ input[type="month"]{
     box-shadow: 5px 5px 10px 1px #b8b8b8be;
     background-color: #e4e4e45d;
     gap: 5rem;
+    position: relative;
+    overflow: hidden;
 }
 
 #form .image-enterprise{
@@ -215,4 +222,25 @@ input[type="month"]{
 
 input[type="radio"]{
     accent-color: var(--green-aqua-bolder);
+}
+
+.circle-style-pass{
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    background-color: var(--green-aqua-normal);
+    position: absolute;
+    bottom: -150px;
+    left: -100px;
+    z-index: -1000;
+}
+
+.circle-style-form{
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    background-color: var(--green-aqua-normal);
+    position: absolute;
+    top: -110px;
+    right: -100px;
 }
