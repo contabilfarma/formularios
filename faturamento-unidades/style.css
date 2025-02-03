@@ -215,5 +215,4 @@ input[type="month"]{
 
 input[type="radio"]{
     accent-color: var(--green-aqua-bolder);
-    border: 1px solid var(--green-aqua-bolder);
 }
