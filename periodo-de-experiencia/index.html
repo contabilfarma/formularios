@@ -15,7 +15,7 @@
             <header class="cabecalho">
             </header>
     
-            <form autocomplete="off" method="post" action="https://api.sheetmonkey.io/form/o9nRBcbkKjMhPfFYqYG9PM">
+            <form id="meuFormulario" autocomplete="off" method="post">
     
                 <section class="boas-vindas">
                   
@@ -40,6 +40,17 @@
                         <input type="text" name="setor" required placeholder="Digite o setor do colaborador...">
                     </section>
                 </section>
+
+                <hr>
+
+                    <section  class="ask01 all-ask">
+                        <label for="qual-periodo">Qual período de experiência?</label>
+                        <select required name="qual-periodo">
+                            <option disabled selected value="selecione">Selecione uma das opções</option>
+                            <option value="Primeiro Período de Experiência">Primeiro período de experiência</option>
+                            <option value="Segundo Período de Experiência">Segundo período de experiência</option>
+                        </select>
+                    </section>
 
                 <hr>
                 
@@ -164,7 +175,7 @@
                     </select>
                 </section>
     
-                <input type="submit" value="Enviar">
+                <input type="button" value="Enviar" onclick="enviarFormulario()">
             </form>
     </section>
 </section>
