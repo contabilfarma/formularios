@@ -56,6 +56,7 @@ const secao = document.querySelector('.boas-vindas')
     fetch("https://script.google.com/macros/s/AKfycbweKXgUBqxaBdpR5f1ySLMXBQD59aZJRipdycPtgNXLOILTei-Jn7CcOZ9oRWaFWyzL3w/exec", {
         method: "POST",
         body: formData,
+        mode: "no-cors"
     })
     .then(response => response.text())
     .then(data => {
