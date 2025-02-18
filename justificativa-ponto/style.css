@@ -214,6 +214,8 @@ section.ativo {
     border: 10px solid var(--green-acqua-bolder);
     box-shadow: 0 0 0 10px #fff;
     position: relative;
+    line-height: 1.7rem;
+    letter-spacing: 1px;
 }
 
 .modal i{
@@ -240,4 +242,11 @@ section.ativo {
         opacity: 1;
     }
 
+}
+
+.josi{
+    color: var(--purple-normal);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
