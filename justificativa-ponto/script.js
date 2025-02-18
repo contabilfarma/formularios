@@ -51,12 +51,12 @@ function validarFormulario() {
     const formData = new URLSearchParams();
     formData.append("nome", nome);
     formData.append("email", email);
+    formData.append("justificativa", justificativa)
     formData.append("data", data);
     formData.append("horaInicio", horaInicio);
     formData.append("horaFim", horaFim);
     formData.append("descricao", descricao);
-    formData.append("justificativa", justificativa)
-
+    
     // Envia os dados para o Google Sheets via fetch()
     fetch(googleScriptURL, {
         method: "POST",
