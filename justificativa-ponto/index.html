@@ -8,91 +8,105 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/logo-contabilfarma.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
 <body>
-    <section class="fundo-png">
-        <header>
-            <h1>Ponto DP - <strong>Justificativas</strong></h1>
-            <p><strong>Olá</strong>, <strong class="name"></strong> <br> Este formulário é para que você possa justificar ocorrências em relação a
-                ausências e ao ponto.</p>
-        </header>
-        <section class="body-style">
-            <img src="svg/svg001.svg" alt="svg">
-            <form action="">
-                <section class="info-user">
-                    <div class="username">
-                        <label for="colaborador">Colaborador*</label>
-                        <select name="colaborador" id="colaborador">
-                            <option value="none" selected disabled>Selecione uma das opções</option>
-                            <option value="Ana Clara Moreira">Ana Clara Moreira</option>
-                            <option value="Andrenia Arruda">Andrenia Arruda</option>
-                            <option value="Bianca Marchezi">Bianca Marchezi</option>
-                            <option value="Débora Gomes">Débora Gomes</option>
-                            <option value="Débora Minto">Débora Minto</option>
-                            <option value="Gabriel Marchezi">Gabriel Marchezi</option>
-                            <option value="Gabriela Vieira">Gabriela Vieira</option>
-                            <option value="Graziele Vettorazzi">Graziele Vettorazzi</option>
-                            <option value="Iris Almeida">Iris Almeida</option>
-                            <option value="Soliane Coradini">Soliane Coradini</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="email">E-mail*</label>
-                        <input required type="email" name="email" id="email" placeholder="dp00@contabilfarma.com.br">
-                    </div>
-                </section>
-
-                <section class="tipo-justificativa">
-                    <label for="opcoes">Tipo de Justificativa*</label>
-                    <select name="opcoes" id="opcoes">
+    <header>
+        <h1>Ponto DP - <strong>Justificativas</strong></h1>
+        <p><strong>Olá</strong>, <strong class="name"></strong> <br> Este formulário é para que você possa
+            justificar ocorrências em relação a
+            ausências e ao ponto.</p>
+    </header>
+    <section class="body-style">
+        <img src="svg/svg001.svg" alt="svg">
+        <form action="">
+            <section class="info-user">
+                <div class="username">
+                    <label for="colaborador">Colaborador*</label>
+                    <select name="colaborador" id="colaborador">
                         <option value="none" selected disabled>Selecione uma das opções</option>
-                        <option value="Atestado Médico">Atestado Médico</option>
-                        <option value="Atraso">Atraso</option>
-                        <option value="Batida Manual de Ponto">Batida Manual de Ponto</option>
-                        <option value="Compensação de Jornada">Compensação de Jornada</option>
-                        <option value="Entrada Antecipada">Entrada Antecipada</option>
-                        <option value="Saída Antecipada">Saída Antecipada</option>
-                        <option value="Extensão de Jornada">Extensão de Jornada</option>
-                        <option value="Outro">Outro (descreva no final)</option>
+                        <option value="Ana Clara Moreira">Ana Clara Moreira</option>
+                        <option value="Andrenia Arruda">Andrenia Arruda</option>
+                        <option value="Bianca Marchezi">Bianca Marchezi</option>
+                        <option value="Débora Gomes">Débora Gomes</option>
+                        <option value="Débora Minto">Débora Minto</option>
+                        <option value="Gabriel Marchezi">Gabriel Marchezi</option>
+                        <option value="Gabriela Vieira">Gabriela Vieira</option>
+                        <option value="Graziele Vettorazzi">Graziele Vettorazzi</option>
+                        <option value="Iris Almeida">Iris Almeida</option>
+                        <option value="Soliane Coradini">Soliane Coradini</option>
                     </select>
-                </section>
-
-                <section class="date">
-                    <label for="data-ocorrencia">Data da Ocorrência*</label>
-                    <input required type="date" name="data-ocorrencia" id="data-ocorrencia">
-                    <div class="hours">
-                        <span class="inicio">
-                            <label for="hora-inicio">Hora Início*</label>
-                            <input required type="time" name="hora-inicio" id="hora-inicio">
-                        </span>
-                        <span class="final">
-                            <label for="hora-fim">Hora Fim*</label>
-                            <input required type="time" name="hora-fim" id="hora-fim">
-                        </span>
-                    </div>
-                </section>
-                <section class="description">
-                    <label for="descricao">Descrição da Ocorrência*</label>
-                    <textarea placeholder="Faça a descrição..." name="descricao" id="descricao" cols="30" rows="10"></textarea>
-                </section>
-
-                <input type="button" value="ENVIAR">
-            </form>
-            <hr style="height: 500px;">
-            <picture>
-                <img src="svg/form-img.svg" alt="Form Image">
-            </picture>
-        </section>
+                </div>
+                <div>
+                    <label for="email">E-mail*</label>
+                    <input required type="email" name="email" id="email" placeholder="dp00@contabilfarma.com.br">
+                </div>
+            </section>
+            <section class="tipo-justificativa">
+                <label for="opcoes">Tipo de Justificativa*</label>
+                <select name="opcoes" id="opcoes">
+                    <option value="none" selected disabled>Selecione uma das opções</option>
+                    <option value="Atestado Médico">Atestado Médico</option>
+                    <option value="Atraso">Atraso</option>
+                    <option value="Batida Manual de Ponto">Batida Manual de Ponto</option>
+                    <option value="Compensação de Jornada">Compensação de Jornada</option>
+                    <option value="Entrada Antecipada">Entrada Antecipada</option>
+                    <option value="Saída Antecipada">Saída Antecipada</option>
+                    <option value="Extensão de Jornada">Extensão de Jornada</option>
+                    <option value="Outro">Outro (descreva no final)</option>
+                </select>
+            </section>
+            <section class="date">
+                <label for="data-ocorrencia">Data da Ocorrência*</label>
+                <input required type="date" name="data-ocorrencia" id="data-ocorrencia">
+                <div class="hours">
+                    <span class="inicio">
+                        <label for="hora-inicio">Hora Início*</label>
+                        <input required type="time" name="hora-inicio" id="hora-inicio">
+                    </span>
+                    <span class="final">
+                        <label for="hora-fim">Hora Fim*</label>
+                        <input required type="time" name="hora-fim" id="hora-fim">
+                    </span>
+                </div>
+                <span class="dica open">Ver mais</span>
+            </section>
+            
+            <section class="description">
+                <label for="descricao">Descrição da Ocorrência*</label>
+                <textarea placeholder="Faça a descrição da ocorrência..." name="descricao" id="descricao" cols="30"
+                    rows="10"></textarea>
+            </section>
+            <input type="button" value="ENVIAR">
+        </form>
+        <hr style="height: 500px;">
+        <picture>
+            <img src="svg/form-img.svg" alt="Form Image">
+        </picture>
     </section>
-
+    </section>
     <img class="blob top" src="svg/blob-maker.svg" alt="">
     <img class="blob other" src="svg/blob-maker.svg" alt="">
     <img class="blob other02" src="svg/blob-maker.svg" alt="">
     <img class="blob other03" src="svg/blob-maker.svg" alt="">
     <img class="blob other04" src="svg/blob-maker.svg" alt="">
     <img class="blob other05" src="svg/blob-maker.svg" alt="">
+
+    <section class="popup" data-modal="container">
+        <div class="modal">
+            <p>Nos campos "Hora Início" e "Hora Fim", deve-se preencher os horários correspondentes ao
+                período da ocorrência. A "Hora Início" deve indicar o momento em que a ocorrência começou a
+                ser contabilizada, e a "Hora Fim" deve indicar quando a ocorrência foi finalizada.</p>
+            <p>Por exemplo: no caso de um atraso, se um colaborador deveria iniciar o expediente às 7:30 e
+                chegou às 8:10, o preenchimento correto seria:</p>
+            <p>Hora Início: 7:30 (momento em que o atraso começou a ser contabilizado) <br> Hora Fim: 8:10
+                (momento em que o atraso foi finalizado) <br>Dessa forma, garantimos que o registro da
+                ocorrência esteja correto e alinhado ao controle de jornada.</p>
+                <i class="fa-regular fa-circle-xmark close"></i>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>

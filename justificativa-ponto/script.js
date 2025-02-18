@@ -85,3 +85,21 @@ document.addEventListener("DOMContentLoaded", function () {
         validarFormulario();
     });
 });
+
+
+function modal(){
+    btnOpen = document.querySelector(".open")
+    btnClose = document.querySelector(".close")
+    popup = document.querySelector(".popup")
+
+    btnOpen.addEventListener('click', () => {
+       popup.classList.add('ativo')
+    })
+
+    btnClose.addEventListener('click', () => {
+        popup.classList.remove('ativo')
+    })
+  
+}
+
+modal()
