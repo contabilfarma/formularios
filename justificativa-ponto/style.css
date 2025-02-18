@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans", serif;
+}
+
+:root{
+    --purple-bolder: #2C0139;
+    --purple-normal: #582464;
+    --green-acqua-bolder: #48D597;
+    --green-acqua-normal:#20F9CF;
+}
+
+body{
+    padding: 2rem;
+    position: relative;
+    display: none;
+}
+
+.body-style{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    width: 900px;
+    margin: 0 auto;
+    background-color: #7070701e;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 6px 2px #7c797946;
+    position: relative;
+    overflow: hidden;
+}
+
+header > h1 > strong{
+    color: var(--green-acqua-bolder);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    z-index: 1000;
+}
+
+picture img{
+    width: 400px;
+}
+
+input,
+select{
+    width: 100%;
+    margin: 5px 0 10px 0;
+    border: none;
+    padding: .5rem;
+    border-radius: .5rem;
+    box-shadow: 1px 1px 5px 0px #5a5a5a86;
+}
+
+.date{
+    display: flex;
+    flex-direction: column;
+}
+
+.hours{
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 0;
+    gap: 5rem;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+}
+
+textarea{
+    width: 280px;
+    padding: .5rem;
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 1px 1px 5px 0px #5a5a5a86;
+}
+
+header{
+    margin: 0 auto;
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+header h1{
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+header > p{
+    letter-spacing: 1.3px;
+}
+
+header > p > strong{
+    font-size: 1.5rem;
+}
+
+header > p > strong.name{
+    color: var(--green-acqua-bolder);
+}
+
+input[type="button"]{
+    margin-top: 2rem;
+    background-color: var(--purple-normal);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: .4s linear;
+}
+
+input[type="button"]:hover{
+    transform: scale(1.05);
+}
+
+.body-style > img{
+    position: absolute;
+    top: 0;
+    z-index: -100;
+}
+
+.blob{
+    width: 200px;
+    opacity: .8;
+    position: absolute;
+    transition: .2s linear;
+}
+
+.blob:hover{
+    transform: scale(.9);
+}
+
+.top{
+    top: 0;
+}
+
+.other{
+    top: 350px;
+    left: 100px;
+}
+
+.other02{
+    right: 0;
+    top: 0;
+}
+
+.other03{
+    right: 100px;
+    top: 350px;
+}
+
+.other04{
+    bottom: 50px;
+}
+
+.other05{
+    bottom: 50px;
+    right: 0;
+}

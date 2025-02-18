@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justificativa de Ponto</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/logo-contabilfarma.png" type="image/x-icon">
+
+</head>
+
+<body>
+    <section class="fundo-png">
+        <header>
+            <h1>Ponto DP - <strong>Justificativas</strong></h1>
+            <p><strong>Olá</strong>, <strong class="name"></strong> <br> Este formulário é para que você possa justificar ocorrências em relação a
+                ausências e ao ponto.</p>
+        </header>
+        <section class="body-style">
+            <img src="svg/svg001.svg" alt="svg">
+            <form action="">
+                <section class="info-user">
+                    <div class="username">
+                        <label for="colaborador">Colaborador*</label>
+                        <select name="colaborador" id="colaborador">
+                            <option value="none" selected disabled>Selecione uma das opções</option>
+                            <option value="Ana Clara Moreira">Ana Clara Moreira</option>
+                            <option value="Andrenia Arruda">Andrenia Arruda</option>
+                            <option value="Bianca Marchezi">Bianca Marchezi</option>
+                            <option value="Débora Gomes">Débora Gomes</option>
+                            <option value="Débora Minto">Débora Minto</option>
+                            <option value="Gabriel Marchezi">Gabriel Marchezi</option>
+                            <option value="Gabriela Vieira">Gabriela Vieira</option>
+                            <option value="Graziele Vettorazzi">Graziele Vettorazzi</option>
+                            <option value="Iris Almeida">Iris Almeida</option>
+                            <option value="Soliane Coradini">Soliane Coradini</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="email">E-mail*</label>
+                        <input required type="email" name="email" id="email" placeholder="dp00@contabilfarma.com.br">
+                    </div>
+                </section>
+                <section class="date">
+                    <label for="data-ocorrencia">Data da Ocorrência*</label>
+                    <input required type="date" name="data-ocorrencia" id="data-ocorrencia">
+                    <div class="hours">
+                        <span class="inicio">
+                            <label for="hora-inicio">Hora Início*</label>
+                            <input required type="time" name="hora-inicio" id="hora-inicio">
+                        </span>
+                        <span class="final">
+                            <label for="hora-fim">Hora Fim*</label>
+                            <input required type="time" name="hora-fim" id="hora-fim">
+                        </span>
+                    </div>
+                </section>
+                <section class="description">
+                    <label for="descricao">Descrição da Ocorrência</label>
+                    <textarea placeholder="Faça a descrição..." name="descricao" id="descricao" cols="30" rows="10"></textarea>
+                </section>
+
+                <input type="button" value="ENVIAR">
+            </form>
+            <hr style="height: 500px;">
+            <picture>
+                <img src="svg/form-img.svg" alt="Form Image">
+            </picture>
+        </section>
+    </section>
+
+    <img class="blob top" src="svg/blob-maker.svg" alt="">
+    <img class="blob other" src="svg/blob-maker.svg" alt="">
+    <img class="blob other02" src="svg/blob-maker.svg" alt="">
+    <img class="blob other03" src="svg/blob-maker.svg" alt="">
+    <img class="blob other04" src="svg/blob-maker.svg" alt="">
+    <img class="blob other05" src="svg/blob-maker.svg" alt="">
+
+    <script src="script.js"></script>
+</body>
+
+</html>
