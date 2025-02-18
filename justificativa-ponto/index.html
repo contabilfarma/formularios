@@ -43,6 +43,22 @@
                         <input required type="email" name="email" id="email" placeholder="dp00@contabilfarma.com.br">
                     </div>
                 </section>
+
+                <section class="tipo-justificativa">
+                    <label for="opcoes">Tipo de Justificativa*</label>
+                    <select name="opcoes" id="opcoes">
+                        <option value="none" selected disabled>Selecione uma das opções</option>
+                        <option value="Atestado Médico">Atestado Médico</option>
+                        <option value="Atraso">Atraso</option>
+                        <option value="Batida Manual de Ponto">Batida Manual de Ponto</option>
+                        <option value="Compensação de Jornada">Compensação de Jornada</option>
+                        <option value="Entrada Antecipada">Entrada Antecipada</option>
+                        <option value="Saída Antecipada">Saída Antecipada</option>
+                        <option value="Extensão de Jornada">Extensão de Jornada</option>
+                        <option value="Outro">Outro (descreva no final)</option>
+                    </select>
+                </section>
+
                 <section class="date">
                     <label for="data-ocorrencia">Data da Ocorrência*</label>
                     <input required type="date" name="data-ocorrencia" id="data-ocorrencia">
@@ -58,7 +74,7 @@
                     </div>
                 </section>
                 <section class="description">
-                    <label for="descricao">Descrição da Ocorrência</label>
+                    <label for="descricao">Descrição da Ocorrência*</label>
                     <textarea placeholder="Faça a descrição..." name="descricao" id="descricao" cols="30" rows="10"></textarea>
                 </section>
 

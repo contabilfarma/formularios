@@ -34,9 +34,11 @@ function validarFormulario() {
     const horaInicio = document.getElementById("hora-inicio").value;
     const horaFim = document.getElementById("hora-fim").value;
     const descricao = document.getElementById("descricao").value;
+    const justificativa = document.getElementById("opcoes").value;
 
     if (nome === "none" || email.trim() === "" || data.trim() === "" ||
-        horaInicio.trim() === "" || horaFim.trim() === "" || descricao.trim() === "") {
+        horaInicio.trim() === "" || horaFim.trim() === "" || descricao.trim() === "" ||
+        justificativa === "none") {
         
         alert("Por favor, preencha todos os campos obrigatórios antes de enviar o formulário.");
         return false;
@@ -53,6 +55,7 @@ function validarFormulario() {
     formData.append("horaInicio", horaInicio);
     formData.append("horaFim", horaFim);
     formData.append("descricao", descricao);
+    formData.append("justificativa", justificativa)
 
     // Envia os dados para o Google Sheets via fetch()
     fetch(googleScriptURL, {
