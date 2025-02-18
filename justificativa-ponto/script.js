@@ -62,7 +62,7 @@ function validarFormulario() {
     .then(response => response.text())
     .then(response => {
         if (response === "Success") {
-            alert("Formulário enviado com sucesso!");
+            alert("Formulário enviado com sucesso. Um e-mail foi disparado à sua caixa de entrada!");
             form.reset(); // Limpa o formulário após envio
         } else {
             alert("Erro ao enviar os dados. Tente novamente.");
