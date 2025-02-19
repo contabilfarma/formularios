@@ -91,7 +91,7 @@ textarea{
 header{
     margin: 0 auto;
     margin: 2rem auto;
-    max-width: 600px;
+    width: 600px;
 }
 
 header h1{
@@ -299,6 +299,14 @@ section.ativo {
         flex-direction: column-reverse;
     }
 
+    header{
+        width: 85%;
+    }
+
+    header > p{
+        max-width: 70ch;
+    }
+
     picture img{
        display: none;
     }
@@ -330,5 +338,18 @@ section.ativo {
     }
     .body-style > img{
         height: 200px;
+    }
+    header{
+        width: 95%;
+    }
+    .modal{
+        width: 80%;
+        background-color: #fff;
+        padding: 1rem;
+        border-radius: .5rem;
+        box-shadow: 0 0 0 10px #fff;
+        position: relative;
+        line-height: 1.5rem;
+        letter-spacing: 1px;
     }
 }
