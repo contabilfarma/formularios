@@ -250,3 +250,85 @@ section.ativo {
     letter-spacing: 2px;
     text-transform: uppercase;
 }
+
+
+
+
+@media(max-width: 1490px){
+    .other{
+        left: 0;
+    }
+
+    .other03{
+        right: 0;
+    }
+}
+
+@media(max-width: 1335px){
+    .top,
+    .other,
+    .other04{
+        left: -2px;
+    }
+
+    .other02,
+    .other03,
+    .other05{
+        right: -2px;
+    }
+}
+
+@media(max-width: 1300px){
+    .other,
+    .other03,
+    .other04,
+    .other05{
+        display: none;
+    }
+}
+
+@media(max-width: 1000px){
+    .blob{
+        display: none;
+    }
+}
+
+@media(max-width: 960px){
+    .body-style{
+        width: 85%;
+        flex-direction: column-reverse;
+    }
+
+    picture img{
+       display: none;
+    }
+
+    hr{
+        display: none;
+    }
+
+    form{
+        width: 100%;
+    }
+
+    .info-user,
+    .tipo-justificativa,
+    .date,
+    .description,
+    textarea{
+        width: 100%;
+    }
+    input[type="time"]{
+        max-width: 270px;
+    }
+
+}
+
+@media(max-width: 650px){
+    .body-style{
+        width: 95%;
+    }
+    .body-style > img{
+        height: 200px;
+    }
+}
