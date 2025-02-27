@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissão de Funcionário</title>
+
+    <link rel="shortcut icon" href="images/logo-contabilfarma.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="div-body">
+        <section class="info">
+            <form action="" autocomplete="off" method="post" onsubmit="return false">
+                <header>
+                    <span><strong class="st01">Olá</strong>, <br> Bem-vindo(a) ao painel de admissão de novos colaboradores.</span>
+                </header>
+                <div class="id-colaborador">
+                    <label for="nome">Digite o nome do novo colaborador(a):</label>
+                    <input type="text" name="nome" id="nome" placeholder="Digite aqui...">
+                </div>
+                <div class="setor">
+                    <label for="setor">Selecione o departamento:</label>
+                    <select name="setor" id="setor">
+                        <option selected disabled value="null">Selecione uma das opções</option>
+                        <option value="Departamento Pessoal">Departamento Pessoal</option>
+                        <option value="Departamento Contábil">Departamento Contábil</option>
+                        <option value="Departamento Registro e Legalização">Departamento Registro e Legalização</option>
+                        <option value="Departamento Fiscal">Departamento Fiscal</option>
+                        <option value="Departamento Financeiro">Departamento Financeiro</option>
+                        <option value="Departamento Administrativo">Departamento Administrativo</option>
+                        <option value="Tecnologias">Tecnologias</option>
+                        <option value="Recursos Humanos">Recursos Humanos</option>
+                    </select>
+                </div>
+                <div class="date">
+                    <label for="date">Data da admissão:</label>
+                    <input type="date" name="date" id="date">
+                </div>
+                <div class="button">
+                    <input type="button" value="Enviar" id="btn">
+                </div>
+            </form>
+            <picture>
+                <img class="logo-form" src="images/img-employee-v1.png" alt="">
+            </picture>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
