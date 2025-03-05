@@ -95,3 +95,7 @@ div.adm{
     display: flex;
     gap: 10px;
 }
+
+input[type="radio"]{
+    accent-color: #3BB680;
+}
