@@ -18,7 +18,7 @@
 }
 
 picture > img.logo-form{
-    width: 500px;
+    width: 600px;
     height: 100%;
     background-color: #eeeeee;
     padding: 1rem;
@@ -82,4 +82,16 @@ select{
 
 label{
     font-size: 1.05rem;
+}
+
+div.type{
+    display: flex;
+    justify-content: space-around;
+    margin: .5rem 0 0 0;
+}
+
+div.deslig,
+div.adm{
+    display: flex;
+    gap: 10px;
 }

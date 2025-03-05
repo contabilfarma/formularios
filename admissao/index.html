@@ -17,7 +17,7 @@
                     <span><strong class="st01">Olá</strong>, <br> Bem-vindo(a) ao painel de admissão de novos colaboradores.</span>
                 </header>
                 <div class="id-colaborador">
-                    <label for="nome">Digite o nome do novo colaborador(a):</label>
+                    <label for="nome">Digite o nome do colaborador(a):</label>
                     <input type="text" name="nome" id="nome" placeholder="Digite aqui...">
                 </div>
                 <div class="setor">
@@ -34,8 +34,19 @@
                         <option value="Recursos Humanos">Recursos Humanos</option>
                     </select>
                 </div>
+                <label for="type">Status do colaborador:</label>
+                <div class="type">
+                    <div class="adm">
+                        <input type="radio" checked name="type" id="admissao" value="admissão">
+                        <label for="admissao">Admissão</label>
+                    </div>
+                    <div class="deslig">
+                        <input type="radio" name="type" id="desligamento" value="rescisão">
+                        <label for="desligamento">Rescisão</label>
+                    </div>
+                </div>
                 <div class="date">
-                    <label for="date">Data da admissão:</label>
+                    <label for="date">Data:</label>
                     <input type="date" name="date" id="date">
                 </div>
                 <div class="button">

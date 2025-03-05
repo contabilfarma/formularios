@@ -3,6 +3,7 @@ function validarForm(){
     const nome = document.querySelector("#nome").value
     const departamento = document.querySelector("#setor").value
     const dataInput = document.querySelector("#date")
+    const statusColaborador = document.querySelector('input[name="type"]:checked').value
     let dataAdmissao = dataInput.value
 
     if (dataAdmissao) {
@@ -14,12 +15,14 @@ function validarForm(){
         return false
     }
 
+
     const appsScriptURL = "https://script.google.com/macros/s/AKfycby6TJsbSBW3Kr8BgMP7cuEUWzq7Ol-rOFll4wmlTuguK7TmQ2w5KOZWpmmSOLs7k0CD/exec"
 
     const dadosFormulario = new URLSearchParams()
     dadosFormulario.append("nome", nome)
     dadosFormulario.append("departamento", departamento)
     dadosFormulario.append("dataAdmissao", dataAdmissao)
+    dadosFormulario.append("statusColaborador", statusColaborador)
 
     fetch(appsScriptURL, {
         method: "POST",
