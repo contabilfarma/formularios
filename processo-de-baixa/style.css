@@ -52,7 +52,7 @@ picture{
 }
 
 picture > img{
-    max-width: 650px;
+    max-width: 590px;
     height: 100%;
     padding: 1.5rem;
     transition: .3s linear;
@@ -121,4 +121,10 @@ span.erro{
     text-transform: uppercase;
     color: #ff0000;
     margin: 5px 0 0 5px;
+}
+
+.style-flex{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: .5rem;
 }
