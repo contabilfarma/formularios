@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(165deg, #2D0238, #5A2666, #7c3e8a);
+    flex-direction: column;
+}
+
+header{
+    color: #fff;
+    letter-spacing: 1px;
+    margin-top: -10px;
+}
+
+header > h1{
+    font-size: .9rem;
+    font-weight: 300;
+}
+
+header > h1 > strong{
+    font-size: 2rem;
+    color: #48D597;
+}
+
+form{
+    margin: 0 auto;
+    display: flex;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+}
+
+
+picture{
+    background-color: #fff;
+    border-radius: 0 .7rem .7rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+picture > img{
+    max-width: 650px;
+    height: 100%;
+    padding: 1.5rem;
+    transition: .3s linear;
+}
+
+picture > img:hover{
+    transform: scale(.94);
+}
+
+span.blob{
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    background-color: #48D597;
+    border-radius: 100%;
+    top: -125px;
+    right: -125px;
+}
+
+.sec-form{
+    padding: 1.5rem;
+    border-top: 3px solid #48D597;
+    border-bottom: 3px solid #48D597;
+    border-left: 3px solid #48D597;
+    border-radius: .7rem 0 0 .7rem;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    gap: 1rem;
+}
+
+label{
+    margin-bottom: 5px;
+    color: #fff;
+    font-size: .9rem;
+}
+
+input,
+select,
+textarea{
+    padding: .4rem;
+    border-radius: 8px;
+    width: 100%;
+}
+
+div.btn button{
+    width: 100%;
+    padding: .4rem;
+    border-radius: 8px;
+    background-color: #48D597;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+div.btn button:hover{
+    transform: scale(.96);
+    background-color: #37a072;
+}
+
+span.erro{
+    font-size: .6rem;
+    text-transform: uppercase;
+    color: #ff0000;
+    margin: 5px 0 0 5px;
+}

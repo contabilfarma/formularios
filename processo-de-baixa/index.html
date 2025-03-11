@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processo de Baixa</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/logo-contabilfarma.png" type="image/x-icon">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+</head>
+<body>
+    
+    <form method="post" id="formulario" autocomplete="off">  
+        <section class="sec-form">
+            <header>
+                <h1><strong>Olá</strong>, <br> Este é o formulário de preenchimento para empresas em processo de baixa</h1>
+            </header>
+            <hr>
+            <div class="cod campo">
+                <label for="codigo">Código da Empresa:</label>
+                <input type="text" id="codigo" placeholder="0000">
+            </div>
+            <div class="nome campo">
+                <label for="razao-social" >Razão Social:</label>
+                <input type="text" id="razao-social" placeholder="Razão Social">
+            </div>
+            </div>
+            <div class="estado campo">
+                <label for="uf">UF:</label>
+                <select name="uf" id="uf">
+                    <option value="" disabled selected>Selecione uma das opções</option>
+                    <option value="Acre (AC)">Acre AC</option>
+                    <option value="Amapá (AP)">Amapá (AP)</option>
+                    <option value="Amazonas (AM)">Amazonas (AM)</option>
+                    <option value="Pará (PA)">Pará (PA)</option>
+                    <option value="Rondônia (RO)">Rondônia (RO)</option>
+                    <option value="Roraima (RR)">Roraima (RR)</option>
+                    <option value="Tocantins (TO)">Tocantins (TO)</option>
+                    <option value="Alagoas (AL)">Alagoas (AL)</option>
+                    <option value="Bahia (BA)">Bahia (BA)</option>
+                    <option value="Ceará (CE)">Ceará (CE)</option>
+                    <option value="Maranhão (MA)">Maranhão (MA)</option>
+                    <option value="Paraíba (PB)">Paraíba (PB)</option>
+                    <option value="Pernambuco (PE)">Pernambuco (PE)</option>
+                    <option value="Piauí (PI)">Piauí (PI)</option>
+                    <option value="Rio Grande do Norte (RN)">Rio Grande do Norte (RN)</option>
+                    <option value="Sergipe (SE)">Sergipe (SE)</option>
+                    <option value="Distrito Federal (DF)">Distrito Federal (DF)</option>
+                    <option value="Goiás (GO)">Goiás (GO)</option>
+                    <option value="Mato Grosso (MT)">Mato Grosso (MT)</option>
+                    <option value="Mato Grosso do Sul (MS)">Mato Grosso do Sul (MS)</option>
+                    <option value="Espírito Santo (ES)">Espírito Santo (ES)</option>
+                    <option value="Minas Gerais (MG)">Minas Gerais (MG)</option>
+                    <option value="Rio de Janeiro (RJ)">Rio de Janeiro (RJ)</option>
+                    <option value="São Paulo (SP)">São Paulo (SP)</option>
+                    <option value="Paraná (PR)">Paraná (PR)</option>
+                    <option value="Rio Grande do Sul (RS)">Rio Grande do Sul (RS)</option>
+                    <option value="Santa Catarina (SC)">Santa Catarina (SC)</option>
+                </select>
+            </div>
+            </div>
+            <div class="section-cnpj campo">
+                <label for="cnpj">CNPJ:</label>
+                <input type="text" id="cnpj" placeholder="00.000.000/0000-00">
+            </div>
+            </div>
+            <div class="section-date campo">
+                <label for="date">Deferido em:</label>
+                <input type="date" name="date" id="date">
+            </div>
+            </div>
+            <div class="obs campo">
+                <label for="obs">Observações:</label>
+                <textarea name="obs" id="obs" cols="30" rows="2"></textarea>
+            </div>
+            <div class="btn">
+                <button class="input-btn">Enviar</button>
+            </div>
+        </section>
+        <picture>
+            <img src="images/image01 modify.png" alt="svg">
+            <span class="blob"></span>
+        </picture>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
