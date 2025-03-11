@@ -58,18 +58,80 @@ picture > img{
     transition: .3s linear;
 }
 
-picture > img:hover{
-    transform: scale(.94);
+.bubble {
+    position: absolute;
+    bottom: -50px; 
+    width: 20px;
+    height: 20px;
+    background-color: #48D597;
+    border-radius: 50%;
+    animation: float 4s infinite ease-in;
 }
 
-span.blob{
-    width: 250px;
-    height: 250px;
-    position: absolute;
-    background-color: #48D597;
-    border-radius: 100%;
-    top: -125px;
-    right: -125px;
+.bubble:hover{
+    transform: scale(3);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+.bubble:nth-child(1) {
+    left: 10%;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    width: 15px;
+    height: 15px;
+}
+
+.bubble:nth-child(2) {
+    left: 25%;
+    animation-duration: 4s;
+    animation-delay: 1s;
+    width: 20px;
+    height: 20px;
+}
+
+.bubble:nth-child(3) {
+    left: 40%;
+    animation-duration: 5s;
+    animation-delay: 2s;
+    width: 25px;
+    height: 25px;
+}
+
+.bubble:nth-child(4) {
+    left: 55%;
+    animation-duration: 3.5s;
+    animation-delay: 1.5s;
+    width: 18px;
+    height: 18px;
+}
+
+.bubble:nth-child(5) {
+    left: 70%;
+    animation-duration: 4.2s;
+    animation-delay: 2.5s;
+    width: 22px;
+    height: 22px;
+}
+
+.bubble:nth-child(6) {
+    left: 85%;
+    animation-duration: 3.8s;
+    animation-delay: 1.2s;
+    width: 16px;
+    height: 16px;
 }
 
 .sec-form{
@@ -116,12 +178,6 @@ div.btn button:hover{
     background-color: #37a072;
 }
 
-span.erro{
-    font-size: .6rem;
-    text-transform: uppercase;
-    color: #ff0000;
-    margin: 5px 0 0 5px;
-}
 
 .style-flex{
     display: grid;
