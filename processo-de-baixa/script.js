@@ -19,7 +19,8 @@ function enviarDados(){
     const estado = document.getElementById("uf").value
     const documento = document.getElementById("cnpj").value
     const valorData = document.getElementById("date").value
-    const observacoes = document.getElementById("obs").value
+    const observacoesFormatadas = document.getElementById("obs").value
+    const observacoes = observacoesFormatadas.replace(/\n/g, "<br>")
     const formulario = document.getElementById("formulario")
 
     const [ano, mes, dia] = valorData.split("-")
