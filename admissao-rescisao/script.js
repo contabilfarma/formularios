@@ -10,10 +10,12 @@ function validarForm(){
         dataAdmissao = dataAdmissao.split("-").reverse().join("/");
     }
 
-    if(nome.trim() === "" || departamento.trim() === "null" || dataAdmissao.trim() === ""){
+    if(nome.trim() === "" || departamento.trim() === "" || dataAdmissao.trim() === ""){
         alert("ERRO! Faltam preencher campos")
         return false
     }
+
+    console.log(nome, departamento, dataAdmissao, statusColaborador)
 
 
     const appsScriptURL = "https://script.google.com/macros/s/AKfycby6TJsbSBW3Kr8BgMP7cuEUWzq7Ol-rOFll4wmlTuguK7TmQ2w5KOZWpmmSOLs7k0CD/exec"
@@ -30,7 +32,7 @@ function validarForm(){
     })
     .then(response => response.text())
     .then(response => {
-        if(response === "Sucess"){
+        if(response === "Success"){
             alert("Formulário enviado com sucesso!")
             formulario.reset()
         } else {
@@ -49,7 +51,8 @@ function validarForm(){
 
 const botao = document.querySelector("#btn")
 document.addEventListener("DOMContentLoaded", () => {
-    botao.addEventListener("click", () => {
+    botao.addEventListener("click", (e) => {
+        e.preventDefault()
         validarForm()
     })
 })
