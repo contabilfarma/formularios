@@ -43,7 +43,6 @@ form{
     flex-direction: column;
 }
 
-
 picture{
     background-color: #fff;
     border-radius: 0 .7rem .7rem 0;
@@ -52,7 +51,7 @@ picture{
 }
 
 picture > img{
-    max-width: 590px;
+    max-width: 630px;
     height: 100%;
     padding: 1.5rem;
     transition: .3s linear;
@@ -142,7 +141,7 @@ picture > img{
     border-radius: .7rem 0 0 .7rem;
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 500px;
     gap: 1rem;
 }
 
@@ -183,4 +182,19 @@ div.btn button:hover{
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: .5rem;
+}
+
+div{
+    background-color: #fff;
+    border-radius: 5px 5px 0 0;
+}
+
+#editor-container{
+    margin-top: -20px;
+    border-radius: 0 0 5px 5px;
+    height: 80px;
+}
+
+.transparente{
+    background-color: transparent;
 }

@@ -13,15 +13,19 @@ codigoEmpresa.addEventListener('input', (e) => {
     e.target.value = valor
 })
 
+var quill = new Quill('#editor-container', {
+    theme: 'snow'
+})
+
 function enviarDados(){
     const codigo = codigoEmpresa.value
     const razaoSocial = document.getElementById("razao-social").value
     const estado = document.getElementById("uf").value
     const documento = document.getElementById("cnpj").value
     const valorData = document.getElementById("date").value
-    const observacoesFormatadas = document.getElementById("obs").value
-    const observacoes = observacoesFormatadas.replace(/\n/g, "<br>")
     const formulario = document.getElementById("formulario")
+
+    const valorObs = quill.root.innerHTML
 
     const [ano, mes, dia] = valorData.split("-")
     const data = `${dia}/${mes}/${ano}`
@@ -41,7 +45,8 @@ function enviarDados(){
        dadosForm.append("estado", estado)
        dadosForm.append("documento", documento)
        dadosForm.append("data", data)
-       dadosForm.append("observacoes", observacoes)
+       dadosForm.append("observacoes", valorObs)
+
        
        fetch(appsScriptURL, {
            method: "POST",
@@ -52,6 +57,7 @@ function enviarDados(){
                if(response === "Sucess"){
                    alert("Formulário enviado com sucesso!")
                    formulario.reset()
+                   quill.setContents([])
                } else {
                    alert("Erro no envio dos dados. Tente novamente.")
                }
@@ -64,8 +70,6 @@ function enviarDados(){
            return true
 }
 
-
-
 function actionBtn(){
     const button = document.querySelector(".input-btn")
     
@@ -75,3 +79,5 @@ function actionBtn(){
     })
 }
 actionBtn()
+
+
