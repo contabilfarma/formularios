@@ -4,8 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Empresa</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <link rel="shortcut icon" href="images/logo-contabilfarma.png" type="image/x-icon">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+
 </head>
 <body>
-    
+    <h1>Cadastro de Empresa - <strong>Domínio</strong> Sistemas</h1>
+    <form method="post" autocomplete="off" id="formulario">
+        <div class="step">
+            <div class="div-codigo">
+                <label for="codigo">Código da empresa:</label>
+                <input type="text" id="codigo" placeholder="0000">
+            </div>
+            <div class="div-razao-social">
+                <label for="razao-social">Razão social:</label>
+                <input type="text" id="razao-social" placeholder="Nome da empresa">
+            </div>
+            <div class="div-cnpj">
+                <label for="cnpj">CNPJ:</label>
+                <input type="text" id="cnpj" placeholder="00.000.000/0000-00">
+            </div>
+            <div class="div-responsavel">
+                <label for="responsavel-legal">Responsável legal:</label>
+                <input type="text" id="responsavel-legal" placeholder="Responsável ou sócio">
+            </div>
+            <div class="display-grade">
+                <div class="regime">
+                    <label for="regime-tributario">Regime tributário:</label>
+                    <select name="regime" id="regime-tributario">
+                        <option value="" disabled selected>Selecione uma das opções</option>
+                        <option value="Real">Real</option>
+                        <option value="Simples">Simples</option>
+                        <option value="Presumido">Presumido</option>
+                        <option value="Doméstica">Doméstica</option>
+                        <option value="MEI">MEI</option>
+                        <option value="Produtor Rural">Produtor Rural</option>
+                    </select>
+                </div>
+                <div class="div-date">
+                    <label for="date">Obrigações a partir:</label>
+                    <input type="date" id="date">
+                </div>
+            </div>
+            <div class="div-certificado">
+                <label for="certificado">Já possui Certificado Digital:</label>
+                <div class="sim">
+                    <input value="Possui Certificado Digital" type="radio" id="possui"  name="certificado-digital" checked>
+                    <label for="possui">Possui Certificado Digital</label>
+                </div>
+                <div class="nao">
+                    <input value="Não possui Certificado Digital" type="radio" name="certificado-digital" id="nao-possui">
+                    <label for="nao-possui">Não possui Certificado Digital</label>
+                </div>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+        <div class="step">
+            <div class="contato">
+                <label for="numero">Número de contato:</label>
+                <input type="text" id="numero" placeholder="(xx) xxxxx-xxxx">
+            </div>
+            <div class="contato-emaill">
+                <label for="email">E-mail de contato:</label>
+                <input type="email" placeholder="example@email.com" id="email">   
+            </div>
+            <div class="reponsavel-interno">
+                <label for="interno">Responsável no setor de Registro:</label>
+                <select name="responsavel" id="interno">
+                    <option value="" selected disabled>Selecione uma das opções</option>
+                    <option value="Michele Peixoto">Michele Peixoto</option>
+                    <option value="Maria Eduarda Zerbone">Maria Eduarda Zerbone</option>
+                    <option value="Thayane Nery">Thayane Nery</option>
+                    <option value="Raquel Almeida">Raquel Almeida</option>
+                    <option value="Thayani Pinheiro">Thayani Pinheiro</option>
+                    <option value="Jessica Barbosa">Jessica Barbosa</option>
+                </select>
+            </div>
+            <div class="responsavel-comercial">
+                <label for="comercial">Responsável no Comercial:</label>
+                <input type="text" id="comercial" placeholder="Responsável setor comercial">
+            </div>
+            <div class="enveloper">
+                <label for="obs">Observações:</label>
+                <div id="editor-container">
+                
+                </div>
+            </div>
+            <div class="buttons">
+                <span><i class="fa-solid fa-arrow-left"></i></span>
+                <button class="btn-enviar">Enviar</button>
+            </div>
+        </div>
+        <picture>
+            <img src="images/cad-empresa-figma.png" alt="Image">
+            <div class="bola-style top"></div>
+        </picture>
+
+       
+    </form>
+
+
+    <script src="script.js"></script>
 </body>
 </html>
