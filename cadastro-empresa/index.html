@@ -5,29 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Empresa</title>
 
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-    <link rel="shortcut icon" href="images/logo-contabilfarma.png" type="image/x-icon">
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-
     <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-
+    
+    <link rel="shortcut icon" href="images/logo-contabilfarma1.png" type="image/x-icon">
 
 </head>
 <body>
     <h1>Cadastro de Empresa - <strong>Domínio</strong> Sistemas</h1>
     <form method="post" autocomplete="off" id="formulario">
         <div class="step">
-            <div class="div-codigo">
-                <label for="codigo">Código da empresa:</label>
-                <input type="text" id="codigo" placeholder="0000">
-            </div>
-            <div class="div-razao-social">
-                <label for="razao-social">Razão social:</label>
-                <input type="text" id="razao-social" placeholder="Nome da empresa">
+            <div class="display-grade cod-name">
+                <div class="div-codigo">
+                    <label for="codigo">Código:</label>
+                    <input type="text" id="codigo" placeholder="0000">
+                </div>
+                <div class="div-razao-social">
+                    <label for="razao-social">Razão social:</label>
+                    <input type="text" id="razao-social" placeholder="Nome da empresa">
+                </div>
             </div>
             <div class="div-cnpj">
                 <label for="cnpj">CNPJ:</label>
@@ -37,7 +39,7 @@
                 <label for="responsavel-legal">Responsável legal:</label>
                 <input type="text" id="responsavel-legal" placeholder="Responsável ou sócio">
             </div>
-            <div class="display-grade">
+            <div class="display-grade date">
                 <div class="regime">
                     <label for="regime-tributario">Regime tributário:</label>
                     <select name="regime" id="regime-tributario">
@@ -55,27 +57,40 @@
                     <input type="date" id="date">
                 </div>
             </div>
+            <div>
+                <label for="empresa-constituida">Empresa constituída no escritório:</label>
+                <div class="constituida">
+                    <input value="Constituída no escritório" type="radio" name="constituida" id="constituida" class="constituida" checked>
+                    <label for="constituida">Constituída no escritório</label>
+                </div>
+                <div class="nao-constituida">
+                    <input value="Não constituída no escritório" type="radio" name="constituida" id="nao-constituida" class="constituida">
+                    <label for="nao-constituida">Não constituída no escritório</label>
+                </div>
+            </div>
             <div class="div-certificado">
                 <label for="certificado">Já possui Certificado Digital:</label>
                 <div class="sim">
-                    <input value="Possui Certificado Digital" type="radio" id="possui"  name="certificado-digital" checked>
+                    <input value="Possui Certificado Digital" type="radio" id="possui"  name="certificado-digital" class="certificado" checked>
                     <label for="possui">Possui Certificado Digital</label>
                 </div>
                 <div class="nao">
-                    <input value="Não possui Certificado Digital" type="radio" name="certificado-digital" id="nao-possui">
+                    <input value="Não possui Certificado Digital" type="radio" name="certificado-digital" id="nao-possui" class="certificado">
                     <label for="nao-possui">Não possui Certificado Digital</label>
                 </div>
             </div>
-            <i class="fa-solid fa-arrow-right"></i>
+        <i class="fa-solid fa-arrow-right"></i>
         </div>
         <div class="step">
-            <div class="contato">
-                <label for="numero">Número de contato:</label>
-                <input type="text" id="numero" placeholder="(xx) xxxxx-xxxx">
-            </div>
-            <div class="contato-emaill">
-                <label for="email">E-mail de contato:</label>
-                <input type="email" placeholder="example@email.com" id="email">   
+            <div class="display-grade contatos">
+                <div class="contato">
+                    <label for="numero">Telefone:</label>
+                    <input type="text" id="numero" placeholder="(xx) xxxxx-xxxx">
+                </div>
+                <div class="contato-emaill">
+                    <label for="email">E-mail de contato:</label>
+                    <input type="email" placeholder="example@email.com" id="email">
+                </div>
             </div>
             <div class="reponsavel-interno">
                 <label for="interno">Responsável no setor de Registro:</label>
@@ -92,6 +107,18 @@
             <div class="responsavel-comercial">
                 <label for="comercial">Responsável no Comercial:</label>
                 <input type="text" id="comercial" placeholder="Responsável setor comercial">
+            </div>
+            <div class="grupo">
+                <label for="">Pertence a um grupo:</label>
+                <div class="pertence-grupo">
+                    <input value="Não" type="radio" name="grupo" id="nao" class="grupos" checked>
+                    <label for="nao">Não</label>
+                </div>
+                <div class="nao-pertence-grupo">
+                    <input value="Sim" type="radio" name="grupo" id="sim" class="grupos">
+                    <label for="sim">Sim:</label>
+                    <input id="text-grupo" type="text" placeholder="Qual grupo?" style="width: 100%; margin-left: 10px;" >
+                </div>
             </div>
             <div class="enveloper">
                 <label for="obs">Observações:</label>

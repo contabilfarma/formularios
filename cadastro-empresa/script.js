@@ -76,7 +76,6 @@ var quill = new Quill('#editor-container', {
     theme: 'snow'
 })
 
-
 function enviarDados() {
     const form = document.getElementById("formulario")
     const codigoEmpresa = document.getElementById("codigo").value
@@ -85,20 +84,56 @@ function enviarDados() {
     const responsavelEmpresa = document.getElementById("responsavel-legal").value.toUpperCase()
     const regimeTributario = document.getElementById("regime-tributario").value.toUpperCase()
     const dataObrigacoes = document.getElementById("date").value
-    const certificadoDigital = document.querySelector("input[type='radio']:checked").value.toUpperCase()
+    const certificadoDigital = document.querySelector("input[type='radio'].certificado:checked").value.toUpperCase()
+    const constituida = document.querySelector("input[type='radio'].constituida:checked").value.toUpperCase()
+    const grupos = document.querySelector("input[type='radio'].grupos:checked").value.toUpperCase()
+    let qualGrupo = document.getElementById("text-grupo").value.toUpperCase()
     const telefoneContato = document.getElementById("numero").value
-    const emailCliente = document.getElementById("email").value
-    const responsavelInterno = document.getElementById("interno").value
-    const responsavelComercial = document.getElementById("comercial").value
-    const valorObs = quill.root.innerHTML
+    const emailCliente = document.getElementById("email").value.toLowerCase()
+    const responsavelInterno = document.getElementById("interno").value.toUpperCase()
+    const responsavelComercial = document.getElementById("comercial").value.toUpperCase()
+    let valorObs = quill.root.innerHTML
 
     const [ano, mes, dia] = dataObrigacoes.split("-")
     const data = `${dia}/${mes}/${ano}`
 
-    if(codigoEmpresa.trim() === "" || nomeEmpresa.trim() === "" || cnpjEmpresa.trim() === "" || responsavelEmpresa.trim() === "" || regimeTributario.trim() === "" || data.trim() === "" || telefoneContato.trim() === "" || emailCliente.trim() === "" || responsavelInterno.trim() === "" || responsavelComercial.trim() === ""){
+    if(valorObs === "<p><br></p>"){
+        valorObs = " "
+    }
+
+    if (grupos === "NÃO") {
+        qualGrupo = " "
+    }
+
+
+    if (codigoEmpresa.trim() === "" || nomeEmpresa.trim() === "" || cnpjEmpresa.trim() === "" || responsavelEmpresa.trim() === "" || regimeTributario.trim() === "" || data.trim() === "" || telefoneContato.trim() === "" || emailCliente.trim() === "" || responsavelInterno.trim() === "" || responsavelComercial.trim() === "" || (grupos === "SIM" && qualGrupo === "")) {
         alert('[ERRO] Verifique se todos os campos foram preenchidos!')
         return false
     }
+
+    if(cnpjEmpresa.length !== 18 || telefoneContato.length < 14){
+        alert("Verifique os campos CPNJ ou TELEFONE!")
+        return false
+    }
+
+
+    console.log("Dados enviados:", {
+        codigoEmpresa,
+        nomeEmpresa,
+        cnpjEmpresa,
+        responsavelEmpresa,
+        regimeTributario,
+        data,
+        constituida,
+        certificadoDigital,
+        telefoneContato,
+        emailCliente,
+        responsavelInterno,
+        responsavelComercial,
+        grupos,
+        qualGrupo,
+        valorObs
+    });
 
     const appsScriptAPI = "https://script.google.com/macros/s/AKfycbzRFIC5g9vGXhMyOKSkE8SeUzbaZx4wmJlVRNEDDji8bXyn4ZtBsOOtNu3KIETVVvPy/exec"
 
@@ -109,11 +144,14 @@ function enviarDados() {
     formData.append("responsavel", responsavelEmpresa)
     formData.append("regimeTributario", regimeTributario)
     formData.append("data", data)
+    formData.append("constituida", constituida) 
     formData.append("certificado", certificadoDigital)
     formData.append("telefone", telefoneContato)
     formData.append("email", emailCliente)
     formData.append("responsavelInterno", responsavelInterno)
     formData.append("responsavelComercial", responsavelComercial)
+    formData.append("grupos", grupos)
+    formData.append("qualGrupo", qualGrupo)
     formData.append("observacao", valorObs)
 
     fetch(appsScriptAPI, {
@@ -124,7 +162,7 @@ function enviarDados() {
         .then(response => {
             console.log("Resposta do server: ", response)
 
-            if(response.trim() === "Dados salvos com sucesso"){
+            if (response.trim() === "Dados salvos com sucesso") {
                 alert("Formulário enviado com sucesso!")
                 form.reset()
                 quill.setContents([])
@@ -137,7 +175,8 @@ function enviarDados() {
             alert("Erro na conexão com o Banco de Dados")
         })
 
-        return true
+    return true
+
 }
 
 
@@ -146,4 +185,3 @@ botao.addEventListener("click", (e) => {
     e.preventDefault()
     enviarDados()
 })
-
