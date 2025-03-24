@@ -4,9 +4,9 @@ var quill = new Quill('#editor-container', {
 
 function enviarDados(){
     const formulario = document.getElementById("formulario")
-    const razaoSocial = document.getElementById("razaoSocial").value
+    const razaoSocial = document.getElementById("razaoSocial").value.toUpperCase()
     const dataEncerramento = document.getElementById("data").value
-    const email = document.getElementById("email").value
+    const email = document.getElementById("email").value.toLowerCase()
     const valorObs = quill.root.innerHTML
 
     const [ano, mes, dia] = dataEncerramento.split("-")
