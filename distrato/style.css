@@ -24,23 +24,42 @@ form{
     align-items: center;   
 }
 
+h1{
+    letter-spacing: 1px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+h1 > strong{
+    color: #48D597;
+    text-transform: uppercase;
+}
+
 .sec-form{
-    height: 500px;
+    width: 590px;
+    height: 470px;
     color: #fff;
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    padding: 0 1.75rem;
     border-top: 3px solid #48D597;
     border-bottom: 3px solid #48D597;
     border-left: 3px solid #48D597;
     gap: 1rem;
     border-radius: 0 0 0 2rem;
+    justify-content: center;
 }
 
 input{
     width: 100%;
     padding: .4rem;
     margin-top: 3px;
+}
+
+.grade{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
 }
 
 .observacao label{
@@ -82,7 +101,7 @@ div.ql-snow span button svg{
 .section-image{
     background-color: #fefefe;
     width: 500px;
-    height: 500px;
+    height: 470px;
     display: flex;
     align-items: center;
     border-radius: 0 2rem 0 0;

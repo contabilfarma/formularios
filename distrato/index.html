@@ -16,17 +16,23 @@
 <body>
     <form method="post" id="formulario">
         <section class="sec-form">
+            <section>
+                <h1>Olá, este é o formulário de preenchimento de <strong>Distrato</strong></h1>
+            </section>
+            <hr>
             <div class="nomeEmpresa">
                 <label for="razaoSocial">Cliente solicitante - Razão social:</label>
                 <input type="text" name="razaoSocial" id="razaoSocial" placeholder="Digite a Razão Social">
             </div>
-            <div class="dataEncerramento">
-                <label for="data">Data de encerramento:</label>
-                <input type="date" name="data" id="data">
-            </div>
-            <div class="emailDoc">
-                <label for="email">E-mail:</label>
-                <input type="email" name="email" id="email" placeholder="E-mail para envio de documentação">
+            <div class="grade">
+                <div class="dataEncerramento">
+                    <label for="data">Data encerramento:</label>
+                    <input type="date" name="data" id="data">
+                </div>
+                <div class="emailDoc">
+                    <label for="email">E-mail:</label>
+                    <input type="email" name="email" id="email" placeholder="E-mail para envio de documentação">
+                </div>
             </div>
             <div class="observacao">
                 <label for="editor-container">Observações:</label>
