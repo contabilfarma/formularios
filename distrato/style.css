@@ -1,0 +1,99 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #471553;
+    background: radial-gradient(circle, #471553 32%, #792e8a 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Rubik", sans-serif;
+}
+
+form{
+    display: flex;
+    align-items: center;   
+}
+
+.sec-form{
+    height: 500px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-top: 3px solid #48D597;
+    border-bottom: 3px solid #48D597;
+    border-left: 3px solid #48D597;
+    gap: 1rem;
+    border-radius: 0 0 0 2rem;
+}
+
+input{
+    width: 100%;
+    padding: .4rem;
+    margin-top: 3px;
+}
+
+.observacao label{
+    display: block;
+    margin-bottom: 3px;
+}
+
+div#editor-container,
+div.ql-snow{
+    background-color: #fff;
+    color: #000;
+}
+
+div#editor-container{
+    height: 100px;
+}
+
+div.ql-snow span button svg{
+    width: 20px;
+}
+
+.botao button{
+    padding: .5rem;
+    width: 100%;
+    cursor: pointer;
+    background-color: #48D597;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 1.1rem;
+    color: #fff;
+    transition: .3s linear;
+}
+
+.botao button:hover{
+    background-color: #78f1bd;
+    color: #000;
+}
+
+.section-image{
+    background-color: #fefefe;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    border-radius: 0 2rem 0 0;
+}
+
+picture img{
+    width: 100%;
+    transition: .3s linear;
+    padding: 1rem;
+}
+
+picture img:hover{
+    transform: scale(.94);
+}
