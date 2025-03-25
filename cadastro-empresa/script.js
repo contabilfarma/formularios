@@ -69,7 +69,6 @@ function formatPhone(event) {
     }
 }
 
-// Aplica a máscara no campo de telefone
 phoneInput.addEventListener("input", formatPhone);
 
 var quill = new Quill('#editor-container', {
