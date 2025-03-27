@@ -203,3 +203,19 @@ input[type="button"]:hover{
     justify-content: center;
     align-items: center;
 }
+
+footer{
+    margin-top: 1rem;
+    text-align: center;
+}
+
+footer h2{
+    color: #e60f0f;
+    letter-spacing: 2px;
+}
+
+footer p{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 23px;
+}
