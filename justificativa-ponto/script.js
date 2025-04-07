@@ -44,10 +44,9 @@ function validarFormulario() {
         return false;
     }
 
-    // URL do Webhook do Google Apps Script (cole sua URL aqui!)
     const googleScriptURL = "https://script.google.com/macros/s/AKfycbxMn3P0GuQ7g-JnT40wlzMwkJMp-VfgH9SPShhh5eULVcX9YLVFb7wdOMAxORKm97Bv/exec";
 
-    // Cria um objeto com os dados do formulário
+
     const formData = new URLSearchParams();
     formData.append("nome", nome);
     formData.append("email", email);
