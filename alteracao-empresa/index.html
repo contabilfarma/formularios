@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alteração de Empresas</title>
+
+    <link rel="shortcut icon" href="images/logo-contabilfarma1.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+</head>
+<body>
+    <div class="body">
+        <form method="post" autocomplete="off" id="form">
+            <header>
+                <h1>Formulário de alterações das empresas</h1>
+            </header>
+
+            <hr>
+
+            <div class="form">
+                <div class="dados-empresa">
+                    <div class="codigo">
+                        <label for="codigo">Código:</label>
+                        <input type="text" id="codigo" placeholder="0000">
+                    </div>
+                    <div class="razao-social">
+                        <label for="razao">Razão Social:</label>
+                        <input type="text" id="razao" placeholder="Razão Social da Empresa">
+                    </div>
+                </div>
+                <div class="numbers">
+                    <div class="n-Alt">
+                        <label for="numero-alt">N° Alteração:</label>
+                        <input type="text" id="numero-alt" placeholder="0000">
+                    </div>
+                    <div class="cnpj">
+                        <label for="cnpj-empresa">CNPJ:</label>
+                        <input type="text" id="cnpj-empresa" placeholder="00.000.000/0000-00">
+                    </div>
+                </div>
+                <div class="div-last">
+                    <div class="deferido">
+                        <label for="deferido-em">Deferido em:</label>
+                        <input type="date" id="deferido-em">
+                    </div>
+                    <div>
+                        <label for="uf">UF:</label>
+                        <select name="uf" id="uf">
+                            <option value="" disabled selected>Selecione uma das opções</option>
+                            <option value="Acre (AC)">Acre AC</option>
+                            <option value="Amapá (AP)">Amapá (AP)</option>
+                            <option value="Amazonas (AM)">Amazonas (AM)</option>
+                            <option value="Pará (PA)">Pará (PA)</option>
+                            <option value="Rondônia (RO)">Rondônia (RO)</option>
+                            <option value="Roraima (RR)">Roraima (RR)</option>
+                            <option value="Tocantins (TO)">Tocantins (TO)</option>
+                            <option value="Alagoas (AL)">Alagoas (AL)</option>
+                            <option value="Bahia (BA)">Bahia (BA)</option>
+                            <option value="Ceará (CE)">Ceará (CE)</option>
+                            <option value="Maranhão (MA)">Maranhão (MA)</option>
+                            <option value="Paraíba (PB)">Paraíba (PB)</option>
+                            <option value="Pernambuco (PE)">Pernambuco (PE)</option>
+                            <option value="Piauí (PI)">Piauí (PI)</option>
+                            <option value="Rio Grande do Norte (RN)">Rio Grande do Norte (RN)</option>
+                            <option value="Sergipe (SE)">Sergipe (SE)</option>
+                            <option value="Distrito Federal (DF)">Distrito Federal (DF)</option>
+                            <option value="Goiás (GO)">Goiás (GO)</option>
+                            <option value="Mato Grosso (MT)">Mato Grosso (MT)</option>
+                            <option value="Mato Grosso do Sul (MS)">Mato Grosso do Sul (MS)</option>
+                            <option value="Espírito Santo (ES)">Espírito Santo (ES)</option>
+                            <option value="Minas Gerais (MG)">Minas Gerais (MG)</option>
+                            <option value="Rio de Janeiro (RJ)">Rio de Janeiro (RJ)</option>
+                            <option value="São Paulo (SP)">São Paulo (SP)</option>
+                            <option value="Paraná (PR)">Paraná (PR)</option>
+                            <option value="Rio Grande do Sul (RS)">Rio Grande do Sul (RS)</option>
+                            <option value="Santa Catarina (SC)">Santa Catarina (SC)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="alteracoes">
+                    <label for="editor-container">Qual/Quais alterações:</label>
+                    <div id="editor-container"></div>
+                </div>    
+            </div>
+            
+            <button class="button">Enviar Email</button>
+        </form>
+        <picture>
+            <img src="images/alter-img0.svg" alt="">
+
+            <div class="stars">
+                <div class="star e01"></div>
+                <div class="star e02"></div>
+                <div class="star e03"></div>
+                <div class="star e04"></div>
+                <div class="star e05"></div>
+                <div class="star e06"></div>
+                <div class="star e07"></div>
+            </div>
+        </picture>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
