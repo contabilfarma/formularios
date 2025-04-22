@@ -17,7 +17,7 @@
 </head>
 <body>
     <div class="body">
-        <form method="post" autocomplete="off" id="form">
+        <form autocomplete="off" id="form">
             <header>
                 <h1>Formulário de alterações das empresas</h1>
             </header>
@@ -90,7 +90,7 @@
                 </div>    
             </div>
             
-            <button class="button">Enviar Email</button>
+            <button class="button" type="button">Enviar Email</button>
         </form>
         <picture>
             <img src="images/alter-img0.svg" alt="">
@@ -106,8 +106,14 @@
             </div>
         </picture>
     </div>
-
-
+    <div id="modalCarregando" class="modal-overlay">
+        <div class="modal-content">
+          <div id="modalLoader" class="loader"></div>
+          <div id="modalMensagem" class="modal-text" style="display: none;">Enviado com sucesso!</div>
+        </div>
+    </div>
+      
+    
     <script src="script.js"></script>
 </body>
 </html>

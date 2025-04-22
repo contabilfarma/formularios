@@ -29,49 +29,51 @@ nAlt.addEventListener('input', (e) => {
 })
 
 
+const botao = document.querySelector(".button");
 
-function enviarDados(){
-    const formulario = document.getElementById("form")
-    const codigo = document.getElementById("codigo").value
-    const razaoSocial = document.getElementById("razao").value.toUpperCase()
-    const cnpj = document.getElementById("cnpj-empresa").value
-    const nAlt = document.getElementById("numero-alt").value
-    const date = document.getElementById("deferido-em").value
-    const estado = document.getElementById("uf").value.toUpperCase()
-    let valorObs = quill.root.innerHTML
+botao.addEventListener("click", async (e) => {
+    e.preventDefault();
+    botao.disabled = true; 
 
-    const [ano, mes, dia] = date.split("-")
-    const data = `${dia}/${mes}/${ano}`
+    const sucesso = await enviarDados();
 
-    const horas = new Date()
-    const horaAtual = horas.getHours()
-    let saudacao = ""
+    if (!sucesso) {
+        botao.disabled = false; 
+    }
+});
 
-    if(horaAtual >= 6 && horaAtual <= 12){
-        saudacao = "Bom dia!"
-    } else if(horaAtual >= 13 && horaAtual <= 18){
-        saudacao = "Boa tarde!"
-    } else{
-        saudacao = "Boa noite!"
+async function enviarDados() {
+    const formulario = document.getElementById("form");
+    const codigo = document.getElementById("codigo").value;
+    const razaoSocial = document.getElementById("razao").value.toUpperCase();
+    const cnpj = document.getElementById("cnpj-empresa").value;
+    const nAlt = document.getElementById("numero-alt").value;
+    const date = document.getElementById("deferido-em").value;
+    const estado = document.getElementById("uf").value.toUpperCase();
+    let valorObs = quill.root.innerHTML;
+
+    const [ano, mes, dia] = date.split("-");
+    const data = `${dia}/${mes}/${ano}`;
+
+    const horas = new Date();
+    const horaAtual = horas.getHours();
+    let saudacao = horaAtual < 13 ? "Bom dia!" : horaAtual < 19 ? "Boa tarde!" : "Boa noite!";
+
+    if (valorObs === "<p><br></p>") valorObs = "";
+
+    if (!codigo.trim() || !razaoSocial.trim() || !cnpj.trim() || !data || !estado.trim() || !valorObs.trim() || !nAlt.trim() || data.trim() === "undefined/undefined/") {
+        alert("[ERRO] Preencha todos os campos!");
+        return false;
     }
 
-    if(valorObs === "<p><br></p>"){
-        valorObs = ""
+    if (cnpj.length !== 18) {
+        alert("[ERRO] Campo CNPJ faltam dígitos!");
+        return false;
     }
 
-    if(codigo.trim() === "" || razaoSocial.trim() === "" || cnpj.trim() === "" || data.trim() === "undefined/undefined/" || estado.trim() === "" || valorObs.trim() === "" || nAlt.trim() === ""){
-        alert("[ERRO] Preencha todos os campos!")
-        return false
-     }
+    const scriptAPI = "https://script.google.com/macros/s/AKfycbyljXOrgt3_TcHgOCdRbGXKOXt1QsgfEdBpH2COXN7kBkP7yo568Q7ZsMzRurw4QwcBww/exec";
 
-    if(cnpj.length !== 18){
-        alert("[ERRO ] Campo CNPJ faltam dígitos!")
-        return false
-     }
-
-        const scriptAPI = "https://script.google.com/macros/s/AKfycbyljXOrgt3_TcHgOCdRbGXKOXt1QsgfEdBpH2COXN7kBkP7yo568Q7ZsMzRurw4QwcBww/exec"
-
-        const dadosForm = new URLSearchParams()
+    const dadosForm = new URLSearchParams()
         dadosForm.append("codigo", codigo)
         dadosForm.append("razaoSocial", razaoSocial)
         dadosForm.append("cnpj", cnpj)
@@ -81,33 +83,29 @@ function enviarDados(){
         dadosForm.append("saudacao", saudacao)
         dadosForm.append("nAlt", nAlt)
 
-        fetch(scriptAPI, {
+    try {
+        const response = await fetch(scriptAPI, {
             method: "POST",
             body: dadosForm
-         })
-            .then(response => response.text())
-            .then(response => {
-                console.log("Resposta da API: ", response)
-                if(response === "Success"){
-                    alert("Formulário enviado com sucesso!")
-                    formulario.reset()
-                    quill.setContents([])
-                } else{
-                    alert("[ERRO] " + response)
-                }
-            })
-            .catch(error => {
-                console.error("[ERRO]: ", error)
-                alert("[ERRO] Conexão perdida com o Data Base!")
-            })
+        });
 
-        return true
-     }
+        const texto = await response.text();
+        console.log("Resposta da API:", texto);
 
+        if (texto === "Success") {
+            alert("Formulário enviado com sucesso!");
+            formulario.reset();
+            quill.setContents([]);
+            return true;
+        } else {
+            alert("[ERRO] " + texto);
+            return false;
+        }
 
-const botao = document.querySelector(".button")
+    } catch (error) {
+        console.error("[ERRO]:", error);
+        alert("[ERRO] Conexão perdida com o Data Base!");
+        return false;
+    }
+}
 
-botao.addEventListener("click", (e) => {
-    e.preventDefault()
-    enviarDados()
-})
