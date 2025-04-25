@@ -17,7 +17,21 @@ var quill = new Quill('#editor-container', {
     theme: 'snow'
 })
 
-function enviarDados(){
+function actionBtn(){
+    const button = document.querySelector(".input-btn")
+    button.addEventListener('click', async (event) => {
+        event.preventDefault()
+        button.disabled = true
+
+        const sucesso = await enviarDados()
+        if(!sucesso){
+            button.disabled = false
+        }
+    })
+}
+actionBtn()
+
+async function enviarDados(){
     const codigo = codigoEmpresa.value
     const razaoSocial = document.getElementById("razao-social").value
     const estado = document.getElementById("uf").value
@@ -47,37 +61,32 @@ function enviarDados(){
        dadosForm.append("data", data)
        dadosForm.append("observacoes", valorObs)
 
-       
-       fetch(appsScriptURL, {
-           method: "POST",
-           body: dadosForm
-       })
-           .then(response => response.text())
-           .then(response => {
-               if(response === "Sucess"){
-                   alert("Formulário enviado com sucesso!")
-                   formulario.reset()
-                   quill.setContents([])
-               } else {
-                   alert("Erro no envio dos dados. Tente novamente.")
-               }
-           })
-           .catch(error => {
-               console.error("Erro:", error)
-               alert("Erro na conexão com o DB")
-           })
-       
-           return true
+       try{
+        const response = await fetch(appsScriptURL, {
+            method: "POST",
+            body: dadosForm
+        })
+
+        const texto = await response.text()
+        console.log("Resposta da API:", texto)
+
+        if(texto === "Sucess"){
+            alert("Formulário enviado com sucesso!")
+            formulario.reset()
+            quill.setContents([])
+            return true
+        } else{
+            alert("[ERRO] " + texto)
+            return false
+        }
+
+       }catch(error) {
+          console.error("Erro:", error)
+          alert("Erro na conexão com o DB")
+          return false
+       }
 }
 
-function actionBtn(){
-    const button = document.querySelector(".input-btn")
-    
-    button.addEventListener('click', (event) => {
-        event.preventDefault()
-        enviarDados()
-    })
-}
-actionBtn()
+
 
 
