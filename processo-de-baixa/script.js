@@ -86,7 +86,3 @@ async function enviarDados(){
           return false
        }
 }
-
-
-
-
