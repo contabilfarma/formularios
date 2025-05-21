@@ -25,8 +25,20 @@ window.onload = function (){
     }
 }
 
+const botao = document.querySelector(".botao")
+botao.addEventListener("click", async (e) => {
+    e.preventDefault()
+    botao.disabled = true
 
-function validarFormulario() {
+    const sucesso = await validarFormulario()
+
+    if(!sucesso){
+        botao.disabled = false
+    }
+})
+
+
+async function validarFormulario() {
     const form = document.querySelector("form");
     const nome = document.getElementById("colaborador").value;
     const email = document.getElementById("email").value;
@@ -56,35 +68,30 @@ function validarFormulario() {
     formData.append("horaFim", horaFim);
     formData.append("descricao", descricao);
     
-    // Envia os dados para o Google Sheets via fetch()
-    fetch(googleScriptURL, {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.text())
-    .then(response => {
-        if (response === "Success") {
-            alert("Formulário enviado com sucesso. Um e-mail foi disparado à sua caixa de entrada!");
-            form.reset(); // Limpa o formulário após envio
+    try{
+        const response = await fetch(googleScriptURL, {
+            method: "POST",
+            body: formData
+        })
+
+        const texto = await response.text()
+        console.log("Resposta da API: ", texto)
+
+        if(texto === "Success"){
+            alert("Resposta enviada com sucesso!!")
+            form.reset()
+            return true
         } else {
-            alert("Erro ao enviar os dados. Tente novamente.");
+            alert("[ERRO]: " + texto)
+            return false
         }
-    })
-    .catch(error => {
-        console.error("Erro:", error);
-        alert("Erro ao conectar com o Google Sheets.");
-    });
 
-    return true;
+    } catch (error){
+        console.error("[ERRO]: ", error)
+        alert("[ERRO] Conexão perdida com o Data Base. Tente novamente!")
+        return false
+    }
 }
-
-// Adiciona evento ao botão de envio
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector("input[type='button']").addEventListener("click", function () {
-        validarFormulario();
-    });
-});
-
 
 function modal(){
     btnOpen = document.querySelector(".open")
