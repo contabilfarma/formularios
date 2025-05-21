@@ -37,7 +37,6 @@ botao.addEventListener("click", async (e) => {
     }
 })
 
-
 async function validarFormulario() {
     const form = document.querySelector("form");
     const nome = document.getElementById("colaborador").value;
