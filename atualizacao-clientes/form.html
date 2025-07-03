@@ -1,0 +1,36 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário - Atualização de Contatos</title>
+  <link rel="stylesheet" href="style.css">
+   <script>
+     // Executa antes de qualquer outra coisa
+      if (sessionStorage.getItem('access_form') !== 'granted') {
+        // Sem permissão, volta pra página inicial
+        window.location.href = 'index.html';
+      } else {
+        // Opcional: limpa o sinalizador para não reutilizar
+        sessionStorage.removeItem('access_form');
+      }
+   </script>
+</head>
+<body>
+  <div class="form-container">
+  <form id="contactForm">
+    <!-- agora com id para aplicar a máscara -->
+    <input id="cnpj" name="cnpj" placeholder="CNPJ" required title="Use 14 dígitos ou formato 12.345.678/0001-95">
+    <input id="nomeContato" name="nomeContato" placeholder="Nome do Contato" required>
+    <input id="contato" name="contato" placeholder="Telefone" required title="Use (00)91234-5678 ou (00)1234-5678">
+    <input id="email" type="email" name="email" placeholder="Email" required>
+    <button type="submit">ENVIAR</button>
+  </form>
+  <p id="msg"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

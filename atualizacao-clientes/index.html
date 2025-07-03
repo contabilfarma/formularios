@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Atualizar Contatos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="form-container">
+    <h2>ATUALIZAÇÃO DE CONTATOS – CONTABILFARMA E CONTABILGESTÃO</h2>
+    <p>Prezado cliente, <br>
+      Com o objetivo de manter nossa comunicação cada vez mais eficiente, estamos realizando a <strong>atualização cadastral dos contatos oficiais da sua empresa</strong>. <br>
+      Pedimos a gentileza de preencher este formulário informando os dados:</p>
+    <ul>
+      <li>Do <strong>Responsável Legal da empresa</strong>;</li>
+      <li>Dos <strong>responsáveis por cada setor</strong>: Departamento Pessoal, Fiscal, Financeiro, Contábil, Registro/Legalização entre outros que julgar necessário.</li>
+    </ul>
+    <p><strong style="color: #db0000; text-transform: uppercase;">Atenção</strong>: Os contatos informados aqui serão os únicos considerados pela contabilidade para fins de atendimento e envio de documentos/comunicados. Por isso, é essencial que estejam corretos e sempre atualizados.</p>
+    <p> A <strong>atualização de contatos é de responsabilidade da empresa</strong>, devendo nos informar sempre que houver qualquer alteração. <br>
+      Agradecemos sua atenção e colaboração!</p>
+
+      <a href="form.html?access=granted" id="toForm"><button>CLIQUE PARA IR AO FORMULÁRIO</button></a>
+  </div>
+
+  <script>
+    document.getElementById('toForm').addEventListener('click', () => {
+      sessionStorage.setItem('access_form', 'granted');
+    });
+  </script>
+
+  <script src="script.js"></script>
+
+
+</body>
+
+</html>
