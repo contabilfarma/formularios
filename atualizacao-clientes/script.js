@@ -1,10 +1,9 @@
-// script.js — CNPJ dinâmico + blocos de contato independentes com estrutura de radios em <div class="sim"> e <div class="nao">
-
 document.addEventListener('DOMContentLoaded', () => {
+  const blocosCnpj = document.getElementById('blocosCnpj');
+
   const form = document.getElementById('contactForm');
   if (!form) return;
 
-  // Controle de acesso via ?access=granted
   const params = new URLSearchParams(window.location.search);
   if (params.get('access') !== 'granted') {
     window.location.href = 'index.html';
@@ -12,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   history.replaceState({}, '', 'form.html');
 
-  // Elementos principais
   const cnpjContainer = document.getElementById('cnpj-container');
   const outroCnpjDiv = document.querySelector('.outroCnpj');
   const addCnpjBtn = document.getElementById('addCnpjBtn');
@@ -25,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const URL =
     'https://script.google.com/macros/s/AKfycbyYamPCT4mNuLGStC0UwMbNB3Vwvocs352MNP5um9IabFsApyvXdkomQMr2GqbQTiTLwg/exec';
 
-  // Cria botão “- Remover CNPJ” se não existir
   if (!removeCnpjBtn) {
     removeCnpjBtn = document.createElement('button');
     removeCnpjBtn.type = 'button';
@@ -38,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let blockCounter = 0;
 
-  // Máscaras
   function maskCNPJ(v) {
     return v
       .replace(/\D/g, '')
@@ -48,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/\.(\d{3})(\d)/, '.$1/$2')
       .replace(/(\d{4})(\d)/, '$1-$2');
   }
+
   function maskPhone(v) {
     let x = v.replace(/\D/g, '').slice(0, 11);
     if (x.length > 10) return x.replace(/^(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
@@ -57,7 +54,17 @@ document.addEventListener('DOMContentLoaded', () => {
     return x.replace(/^(\d*)/, '($1');
   }
 
-  // Atualiza placeholders e habilita botões
+  function toggleDeptRequired(visible) {
+    const inputs = deptContainer.querySelectorAll('input');
+    inputs.forEach((input) => {
+      if (visible) {
+        input.setAttribute('required', 'required');
+      } else {
+        input.removeAttribute('required');
+      }
+    });
+  }
+
   function refreshCnpjPlaceholders() {
     const inputs = document.querySelectorAll('input[name="cnpj"]');
     inputs.forEach((inp, i) => {
@@ -74,47 +81,61 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   refreshCnpjPlaceholders();
 
-  // Evento de adicionar CNPJ + blocos de contato
   addCnpjBtn.addEventListener('click', () => {
     blockCounter++;
-    // 1) novo input de CNPJ
+
+    // cria container do bloco
+    const bloco = document.createElement('div');
+    bloco.className = 'bloco-completo';
+    bloco.dataset.block = blockCounter;
+
+    // campo de CNPJ
     const cnpjInp = document.createElement('input');
     cnpjInp.type = 'text';
     cnpjInp.name = 'cnpj';
     cnpjInp.required = true;
-    outroCnpjDiv.append(cnpjInp);
+    cnpjInp.placeholder = `CNPJ${blockCounter}`;
     cnpjInp.dataset.maskAttached = false;
+    cnpjInp.addEventListener('input', (e) => {
+      e.target.value = maskCNPJ(e.target.value);
+    });
+    bloco.appendChild(cnpjInp);
 
-    // 2) bloco de contato com estrutura sim/nao
+    // bloco HTML com campos
     const html = `
-      <div class="contact-block" data-block="${blockCounter}">
-        <input name="responsavelLegal${blockCounter}" type="text" placeholder="Responsável Legal" required>
-        <input name="nomeContato${blockCounter}"      type="text" placeholder="Nome do Contato"   required>
-        <input name="contato${blockCounter}"          type="text" placeholder="Telefone"           required>
-        <input name="email${blockCounter}"            type="email" placeholder="Email"             required>
-        <div class="sim">
-          <input type="radio" id="deptSim${blockCounter}" name="mesmoContato${blockCounter}" value="sim" checked>
-          <label for="deptSim${blockCounter}">Mesmo contato serve para todos os departamentos</label>
-        </div>
-        <div class="nao">
-          <input type="radio" id="deptNao${blockCounter}" name="mesmoContato${blockCounter}" value="nao">
-          <label for="deptNao${blockCounter}">Não, adicionar contato por departamento</label>
-        </div>
-        <div class="dept-container-block"></div>
+    <div class="contact-block" data-block="${blockCounter}">
+      <input name="responsavelLegal${blockCounter}" type="text" placeholder="Responsável Legal" required>
+      <input name="nomeContato${blockCounter}" type="text" placeholder="Nome do Contato" required>
+      <input name="contato${blockCounter}" type="text" placeholder="Telefone" required>
+      <input name="email${blockCounter}" type="email" placeholder="Email" required>
+      <div class="sim">
+        <input type="radio" id="deptSim${blockCounter}" name="mesmoContato${blockCounter}" value="sim" checked>
+        <label for="deptSim${blockCounter}">Mesmo contato serve para todos os departamentos</label>
       </div>
-    `;
-    outroCnpjDiv.insertAdjacentHTML('beforeend', html);
+      <div class="nao">
+        <input type="radio" id="deptNao${blockCounter}" name="mesmoContato${blockCounter}" value="nao">
+        <label for="deptNao${blockCounter}">Não, adicionar contato por departamento</label>
+      </div>
+      <div class="dept-container-block"></div>
+    </div>
+  `;
 
-    // 3) lógica local do bloco
-    const blockEl = outroCnpjDiv.querySelector(
-      `.contact-block[data-block="${blockCounter}"]`,
-    );
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
+    const blockEl = tempDiv.firstElementChild;
+    bloco.appendChild(blockEl);
+
+    blocosCnpj.appendChild(bloco); // ⬅️ insere tudo agrupado
+
+    // lógica dos radios do bloco
     blockEl
       .querySelector(`#deptSim${blockCounter}`)
       .addEventListener('change', () => {
-        blockEl.querySelector('.dept-container-block').innerHTML = '';
-        blockEl.querySelector('.dept-container-block').style.display = 'none';
+        const localDept = blockEl.querySelector('.dept-container-block');
+        localDept.innerHTML = '';
+        localDept.style.display = 'none';
       });
+
     blockEl
       .querySelector(`#deptNao${blockCounter}`)
       .addEventListener('change', () => {
@@ -122,36 +143,31 @@ document.addEventListener('DOMContentLoaded', () => {
         buildDeptLocal(localDept, blockCounter);
         localDept.style.display = 'block';
       });
-    // máscara no telefone deste bloco
+
     blockEl
       .querySelector(`input[name="contato${blockCounter}"]`)
-      .addEventListener(
-        'input',
-        (e) => (e.target.value = maskPhone(e.target.value)),
-      );
+      .addEventListener('input', (e) => {
+        e.target.value = maskPhone(e.target.value);
+      });
 
-    // atualiza placeholders
     refreshCnpjPlaceholders();
   });
 
-  // Remove último bloco + CNPJ
   removeCnpjBtn.addEventListener('click', () => {
     const all = document.querySelectorAll('input[name="cnpj"]');
     if (all.length > 1) {
       all[all.length - 1].remove();
-      const blocks = outroCnpjDiv.querySelectorAll('.contact-block');
+      const blocks = form.querySelectorAll('.contact-block');
       if (blocks.length) blocks[blocks.length - 1].remove();
       refreshCnpjPlaceholders();
     }
   });
 
-  // máscara do telefone principal
   phoneInput.addEventListener(
     'input',
     (e) => (e.target.value = maskPhone(e.target.value)),
   );
 
-  // Cria campos de departamento para um bloco específico
   function buildDeptLocal(container, idx) {
     const deps = [
       'Pessoal',
@@ -191,7 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // lógica do bloco inicial de departamento
   function buildDeptFields() {
     const deps = [
       'Pessoal',
@@ -231,17 +246,20 @@ document.addEventListener('DOMContentLoaded', () => {
         deptContainer.append(document.createElement('hr'));
     });
   }
-  deptSim.addEventListener(
-    'change',
-    () => (deptContainer.style.display = 'none'),
-  );
+
+  deptSim.addEventListener('change', () => {
+    deptContainer.style.display = 'none';
+    toggleDeptRequired(false);
+  });
+
   deptNao.addEventListener('change', () => {
     buildDeptFields();
     deptContainer.style.display = 'block';
+    toggleDeptRequired(true);
   });
+
   deptContainer.style.display = 'none';
 
-  // envio do form
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (!form.checkValidity()) {
