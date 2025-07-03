@@ -98,15 +98,25 @@ strong{
 }
 
 .sim,
-.nao{
+.nao,
+.toggle-option{
   display: grid;
   grid-template-columns: 10px 2fr;
   gap: .5rem;
   align-items: center;
 }
 
-.dept-toggle{
+.dept-toggle,
+.contact-block .nao{
   margin: 10px;
+}
+
+.contact-block .sim{
+  margin: 10px 0 0 10px;
+}
+
+.contact-block .nao{
+  margin: 0px 0px 0px 10px;
 }
 
 .dept-field{
