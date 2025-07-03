@@ -1,36 +1,65 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulário - Atualização de Contatos</title>
   <link rel="stylesheet" href="style.css">
-   <script>
-     // Executa antes de qualquer outra coisa
-      if (sessionStorage.getItem('access_form') !== 'granted') {
-        // Sem permissão, volta pra página inicial
-        window.location.href = 'index.html';
-      } else {
-        // Opcional: limpa o sinalizador para não reutilizar
-        sessionStorage.removeItem('access_form');
-      }
-   </script>
+  <script>
+    // Executa antes de qualquer outra coisa
+    if (sessionStorage.getItem('access_form') !== 'granted') {
+      // Sem permissão, volta pra página inicial
+      window.location.href = 'index.html';
+    } else {
+      // Opcional: limpa o sinalizador para não reutilizar
+      sessionStorage.removeItem('access_form');
+    }
+  </script>
 </head>
+
 <body>
   <div class="form-container">
-  <form id="contactForm">
-    <!-- agora com id para aplicar a máscara -->
-    <input id="cnpj" name="cnpj" placeholder="CNPJ" required title="Use 14 dígitos ou formato 12.345.678/0001-95">
-    <input id="nomeContato" name="nomeContato" placeholder="Nome do Contato" required>
-    <input id="contato" name="contato" placeholder="Telefone" required title="Use (00)91234-5678 ou (00)1234-5678">
-    <input id="email" type="email" name="email" placeholder="Email" required>
-    <button type="submit">ENVIAR</button>
-  </form>
-  <p id="msg"></p>
-</div>
+    <h3>Preencha com os dados:</h3>
+    <form id="contactForm">
+      <!-- agora com id para aplicar a máscara -->
+      <div id="cnpj-container"><input id="cnpj" name="cnpj" placeholder="CNPJ" required title="Use 14 dígitos ou formato 12.345.678/0001-95"></div>
+      <input id="responsavelLegal" name="responsavelLegal" type="text" placeholder="Responsável Legal" required>
+      <input id="nomeContato" name="nomeContato" placeholder="Nome do Contato" required>
+      <input id="contato" name="contato" placeholder="Telefone" required title="Use (00)91234-5678 ou (00)1234-5678">
+      <input id="email" type="email" name="email" placeholder="Email" required>
 
-<script src="script.js"></script>
+      <div class="dept-toggle">
+        <div class="sim">
+          <input type="radio" id="deptSim" name="mesmoContato" value="sim" checked>
+          <label for="deptSim">
+            Mesmo contato serve para todos os departamentos
+          </label>
+        </div>
+
+        <div class="nao">
+          <input type="radio" id="deptNao" name="mesmoContato" value="nao">
+          <label for="deptNao">
+            Não, adicionar contato por departamento
+          </label>
+        </div>
+      </div>
+
+       <div id="dept-container" style="margin-bottom:1rem;"></div>
+
+      <div class="outroCnpj">
+        <div class="campoBtn">
+          <h4>Há algum outro CNPJ?</h4>
+          <button type="button" id="addCnpjBtn">+ Adicionar CNPJ</button>
+        </div>
+      </div>
+     
+      <button type="submit">ENVIAR</button>
+    </form>
+    <p id="msg"></p>
+  </div>
+
+  <script src="script.js"></script>
 </body>
+
 </html>

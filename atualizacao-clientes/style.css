@@ -69,3 +69,49 @@ li{
 strong{
   font-size: 1.02rem;
 }
+
+.campoBtn{
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+#addCnpjBtn{
+  background-color: #ffff;
+  color: #0058af;
+  border: 2px solid #0058af;
+}
+
+#addCnpjBtn:hover{
+  box-shadow: inset 1px 1px 8px 1px #02030346;
+}
+
+#removeCnpjBtn{
+  background-color: #fff;
+  color: #ff0000;
+  border: 2px solid #ff0000;
+}
+
+#removeCnpjBtn:hover{
+  box-shadow: inset 1px 1px 8px 1px #02030346;
+}
+
+.sim,
+.nao{
+  display: grid;
+  grid-template-columns: 10px 2fr;
+  gap: .5rem;
+  align-items: center;
+}
+
+.dept-toggle{
+  margin: 10px;
+}
+
+.dept-field{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  gap: 10px;
+}
