@@ -200,8 +200,15 @@ document.addEventListener('DOMContentLoaded', () => {
       i2.name = `responsavel${idx}${d.replace(/\s+/g, '')}`;
       i2.placeholder = `Nome do Responsável ${d}`;
       i2.required = true;
+      const l3 = document.createElement('label');
+      l3.textContent = `Email ${d}`;
+      const i3 = document.createElement('input');
+      i3.type = 'email';
+      i3.name = `email${idx}${d.replace(/\s+/g, '')}`;
+      i3.placeholder = `Email ${d}`;
+      i3.required = true;
 
-      w.append(l1, i1, l2, i2);
+      w.append(l1, i1, l2, i2, l3, i3);
       container.append(w);
       if (i < deps.length - 1) container.append(document.createElement('hr'));
     });
@@ -239,8 +246,15 @@ document.addEventListener('DOMContentLoaded', () => {
       i2.name = `responsavel${d.replace(/\s+/g, '')}`;
       i2.placeholder = `Nome do Responsável ${d}`;
       i2.required = true;
+      const l3 = document.createElement('label');
+      l3.textContent = `Email ${d}`;
+      const i3 = document.createElement('input');
+      i3.type = 'email';
+      i3.name = `email${d.replace(/\s+/g, '')}`;
+      i3.placeholder = `Email ${d}`;
+      i3.required = true;
 
-      w.append(l1, i1, l2, i2);
+      w.append(l1, i1, l2, i2, l3, i3);
       deptContainer.append(w);
       if (i < deps.length - 1)
         deptContainer.append(document.createElement('hr'));
