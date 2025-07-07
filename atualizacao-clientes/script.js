@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function buildDeptLocal(container, idx) {
     const deps = [
-      'Pessoal',
+      'Departamento Pessoal',
       'Contábil',
       'Financeiro',
       'Fiscal',
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function buildDeptFields() {
     const deps = [
-      'Pessoal',
+      'Departamento Pessoal',
       'Contábil',
       'Financeiro',
       'Fiscal',
