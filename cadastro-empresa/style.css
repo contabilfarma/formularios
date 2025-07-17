@@ -31,8 +31,7 @@ form{
     height: 525px;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 400px 1fr;
-    
+    grid-template-columns: 450px 1fr;
 }
 
 .step{
@@ -60,7 +59,7 @@ picture{
 }
 
 picture img{
-    width: 600px;
+    width: 500px;
     padding: 1rem;
     transition: .2s linear;
 }
@@ -213,4 +212,11 @@ div.ql-snow span.ql-formats{
     flex-direction: row;
     align-items: center;
     gap: 5px;
+}
+
+
+.infos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 }

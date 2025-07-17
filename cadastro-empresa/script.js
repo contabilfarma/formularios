@@ -90,6 +90,7 @@ function enviarDados() {
     const telefoneContato = document.getElementById("numero").value
     const emailCliente = document.getElementById("email").value.toLowerCase()
     const responsavelInterno = document.getElementById("interno").value.toUpperCase()
+    const responsavelProcesso = document.getElementById("responsavel-processo").value.toUpperCase()
     const responsavelComercial = document.getElementById("comercial").value.toUpperCase()
     let valorObs = quill.root.innerHTML
 
@@ -105,7 +106,7 @@ function enviarDados() {
     }
 
 
-    if (codigoEmpresa.trim() === "" || nomeEmpresa.trim() === "" || cnpjEmpresa.trim() === "" || responsavelEmpresa.trim() === "" || regimeTributario.trim() === "" || data.trim() === "" || telefoneContato.trim() === "" || emailCliente.trim() === "" || responsavelInterno.trim() === "" || responsavelComercial.trim() === "" || (grupos === "SIM" && qualGrupo === "")) {
+    if (codigoEmpresa.trim() === "" || nomeEmpresa.trim() === "" || cnpjEmpresa.trim() === "" || responsavelEmpresa.trim() === "" || regimeTributario.trim() === "" || data.trim() === "" || telefoneContato.trim() === "" || emailCliente.trim() === "" || responsavelInterno.trim() === "" || responsavelProcesso.trim() === "" ||responsavelComercial.trim() === "" || (grupos === "SIM" && qualGrupo === "")) {
         alert('[ERRO] Verifique se todos os campos foram preenchidos!')
         return false
     }
@@ -131,7 +132,8 @@ function enviarDados() {
         responsavelComercial,
         grupos,
         qualGrupo,
-        valorObs
+        valorObs,
+        responsavelProcesso
     });
 
     const appsScriptAPI = "https://script.google.com/macros/s/AKfycbzRFIC5g9vGXhMyOKSkE8SeUzbaZx4wmJlVRNEDDji8bXyn4ZtBsOOtNu3KIETVVvPy/exec"
@@ -152,6 +154,7 @@ function enviarDados() {
     formData.append("grupos", grupos)
     formData.append("qualGrupo", qualGrupo)
     formData.append("observacao", valorObs)
+    formData.append("responsavelProcesso", responsavelProcesso)
 
     fetch(appsScriptAPI, {
         method: "POST",
