@@ -50,6 +50,7 @@ async function enviarDados() {
     const nAlt = document.getElementById("numero-alt").value;
     const date = document.getElementById("deferido-em").value;
     const estado = document.getElementById("uf").value.toUpperCase();
+    const responsavel = document.getElementById("responsavel").value.toUpperCase();
     let valorObs = quill.root.innerHTML;
 
     const [ano, mes, dia] = date.split("-");
@@ -61,7 +62,7 @@ async function enviarDados() {
 
     if (valorObs === "<p><br></p>") valorObs = "";
 
-    if (!codigo.trim() || !razaoSocial.trim() || !cnpj.trim() || !data || !estado.trim() || !valorObs.trim() || !nAlt.trim() || data.trim() === "undefined/undefined/") {
+    if (!codigo.trim() || !razaoSocial.trim() || !cnpj.trim() || !data || !estado.trim() || !valorObs.trim() || !nAlt.trim() || data.trim() === "undefined/undefined/" || !responsavel.trim()) {
         alert("[ERRO] Preencha todos os campos!");
         return false;
     }
@@ -82,6 +83,7 @@ async function enviarDados() {
         dadosForm.append("valorObs", valorObs)
         dadosForm.append("saudacao", saudacao)
         dadosForm.append("nAlt", nAlt)
+        dadosForm.append("responsavel", responsavel)
 
     try {
         const response = await fetch(scriptAPI, {

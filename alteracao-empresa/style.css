@@ -24,10 +24,9 @@ body{
 
 header h1{
     font-family: "Anybody", sans-serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    line-height: 25px;
 }
 
 form{
@@ -41,7 +40,7 @@ form{
     border-top: 3px solid #48D597;
     border-left: 3px solid #48D597;
     border-bottom: 3px solid #48D597;
-    height: 520px;
+    height: 530px;
 }
 
 .form{
@@ -65,7 +64,7 @@ form{
 picture{
     background-color: #fefefe;
     padding: 1rem;
-    height: 520px;
+    height: 530px;
     display: flex;
     justify-content: center;
     align-items: center;

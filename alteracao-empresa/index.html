@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
 </head>
+
 <body>
     <div class="body">
         <form autocomplete="off" id="form">
@@ -44,6 +46,18 @@
                         <label for="cnpj-empresa">CNPJ:</label>
                         <input type="text" id="cnpj-empresa" placeholder="00.000.000/0000-00">
                     </div>
+                </div>
+                <div class="responsavel">
+                    <label for="responsavel">Responsável pelo processo:</label>
+                    <select name="responsavel" id="responsavel">
+                        <option value="" selected disabled>Selecione uma das opções</option>
+                        <option value="Jéssica Barbosa">Jéssica Barbosa</option>
+                        <option value="Maria Eduarda Zerbone">Maria Eduarda Zerbone</option>
+                        <option value="Michele Peixoto">Michele Peixoto</option>
+                        <option value="Raquel Almeida">Raquel Almeida</option>
+                        <option value="Thayane Nery">Thayane Nery</option>
+                        <option value="Thayani Pinheiro">Thayani Pinheiro</option>
+                    </select>
                 </div>
                 <div class="div-last">
                     <div class="deferido">
@@ -87,9 +101,9 @@
                 <div class="alteracoes">
                     <label for="editor-container">Qual/Quais alterações:</label>
                     <div id="editor-container"></div>
-                </div>    
+                </div>
             </div>
-            
+
             <button class="button" type="button">Enviar Email</button>
         </form>
         <picture>
@@ -108,12 +122,13 @@
     </div>
     <div id="modalCarregando" class="modal-overlay">
         <div class="modal-content">
-          <div id="modalLoader" class="loader"></div>
-          <div id="modalMensagem" class="modal-text" style="display: none;">Enviado com sucesso!</div>
+            <div id="modalLoader" class="loader"></div>
+            <div id="modalMensagem" class="modal-text" style="display: none;">Enviado com sucesso!</div>
         </div>
     </div>
-      
-    
+
+
     <script src="script.js"></script>
 </body>
+
 </html>
