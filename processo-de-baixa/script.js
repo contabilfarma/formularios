@@ -33,10 +33,11 @@ actionBtn()
 
 async function enviarDados(){
     const codigo = codigoEmpresa.value
-    const razaoSocial = document.getElementById("razao-social").value
-    const estado = document.getElementById("uf").value
-    const documento = document.getElementById("cnpj").value
-    const valorData = document.getElementById("date").value
+    const razaoSocial = document.getElementById("razao-social").value.toUpperCase()
+    const estado = document.getElementById("uf").value.toUpperCase()
+    const documento = document.getElementById("cnpj").value.toUpperCase()
+    const valorData = document.getElementById("date").value.toUpperCase()
+    const responsavel = document.getElementById("responsavel").value.toUpperCase()
     const formulario = document.getElementById("formulario")
 
     const valorObs = quill.root.innerHTML
@@ -46,7 +47,7 @@ async function enviarDados(){
 
     
     if(codigo.trim() === "" || razaoSocial.trim() === "" || estado.trim() === "" || 
-       documento.trim() === "" || data.trim() === ""){
+       documento.trim() === "" || data.trim() === "" || responsavel.trim() === ""){
             alert("[ERRO] Preencha todos os campos!")
             return false
        }
@@ -60,6 +61,7 @@ async function enviarDados(){
        dadosForm.append("documento", documento)
        dadosForm.append("data", data)
        dadosForm.append("observacoes", valorObs)
+       dadosForm.append("responsavel", responsavel)
 
        try{
         const response = await fetch(appsScriptURL, {
