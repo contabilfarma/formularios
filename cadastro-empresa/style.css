@@ -198,7 +198,7 @@ div.ql-snow span.ql-formats{
 }
 
 .contatos{
-    grid-template-columns: 125px 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 
 .grupo{
@@ -216,6 +216,12 @@ div.ql-snow span.ql-formats{
 
 
 .infos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.comercial-contador{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;

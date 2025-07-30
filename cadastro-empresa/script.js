@@ -92,6 +92,7 @@ function enviarDados() {
     const responsavelInterno = document.getElementById("interno").value.toUpperCase()
     const responsavelProcesso = document.getElementById("responsavel-processo").value.toUpperCase()
     const responsavelComercial = document.getElementById("comercial").value.toUpperCase()
+    const contadorResponsavel = document.getElementById('contador').value.toUpperCase()
     let valorObs = quill.root.innerHTML
 
     const [ano, mes, dia] = dataObrigacoes.split("-")
@@ -106,7 +107,7 @@ function enviarDados() {
     }
 
 
-    if (codigoEmpresa.trim() === "" || nomeEmpresa.trim() === "" || cnpjEmpresa.trim() === "" || responsavelEmpresa.trim() === "" || regimeTributario.trim() === "" || data.trim() === "" || telefoneContato.trim() === "" || emailCliente.trim() === "" || responsavelInterno.trim() === "" || responsavelProcesso.trim() === "" ||responsavelComercial.trim() === "" || (grupos === "SIM" && qualGrupo === "")) {
+    if (codigoEmpresa.trim() === "" || nomeEmpresa.trim() === "" || cnpjEmpresa.trim() === "" || responsavelEmpresa.trim() === "" || regimeTributario.trim() === "" || data.trim() === "" || telefoneContato.trim() === "" || emailCliente.trim() === "" || responsavelInterno.trim() === "" || responsavelProcesso.trim() === "" || responsavelComercial.trim() === "" || contadorResponsavel.trim() === "" || (grupos === "SIM" && qualGrupo === "")) {
         alert('[ERRO] Verifique se todos os campos foram preenchidos!')
         return false
     }
@@ -133,7 +134,8 @@ function enviarDados() {
         grupos,
         qualGrupo,
         valorObs,
-        responsavelProcesso
+        responsavelProcesso,
+        contadorResponsavel
     });
 
     const appsScriptAPI = "https://script.google.com/macros/s/AKfycbzRFIC5g9vGXhMyOKSkE8SeUzbaZx4wmJlVRNEDDji8bXyn4ZtBsOOtNu3KIETVVvPy/exec"
@@ -155,6 +157,7 @@ function enviarDados() {
     formData.append("qualGrupo", qualGrupo)
     formData.append("observacao", valorObs)
     formData.append("responsavelProcesso", responsavelProcesso)
+    formData.append("contadorResponsavel", contadorResponsavel)
 
     fetch(appsScriptAPI, {
         method: "POST",
