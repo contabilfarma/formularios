@@ -1,55 +1,68 @@
 var quill = new Quill('#editor-container', {
-    theme: 'snow'
-})
+  theme: 'snow',
+});
 
-function enviarDados(){
-    const formulario = document.getElementById("formulario")
-    const razaoSocial = document.getElementById("razaoSocial").value.toUpperCase()
-    const dataEncerramento = document.getElementById("data").value
-    const email = document.getElementById("email").value.toLowerCase()
-    const valorObs = quill.root.innerHTML
+function enviarDados() {
+  const formulario = document.getElementById('formulario');
+  const razaoSocial = document
+    .getElementById('razaoSocial')
+    .value.toUpperCase();
+  const dataEncerramento = document.getElementById('data').value;
+  const email = document.getElementById('email').value.toLowerCase();
+  const valorObs = quill.root.innerHTML;
 
-    const [ano, mes, dia] = dataEncerramento.split("-")
-    const data = `${dia}/${mes}/${ano}`
+  const [ano, mes, dia] = dataEncerramento.split('-');
+  const data = `${dia}/${mes}/${ano}`;
 
-    if(razaoSocial.trim() === "" || data.trim() === "" || email.trim() === ""){
-        alert("Faltam dados. Tente novamente!!")
-        return false
-    } else{
-        appScriptsAPI = "https://script.google.com/a/macros/contabilfarma.com.br/s/AKfycbxkQ2NpE5ErTM1MYz06kD7INYBUtayudEZx6AgUmees00aODzHmft9hqxUrmJSyHOoTUg/exec"
+  if (razaoSocial.trim() === '' || data.trim() === '' || email.trim() === '') {
+    alert('Faltam dados. Tente novamente!!');
+    return false;
+  } else {
+    const appScriptsAPI1 =
+      'https://script.google.com/macros/s/AKfycbxkQ2NpE5ErTM1MYz06kD7INYBUtayudEZx6AgUmees00aODzHmft9hqxUrmJSyHOoTUg/exec';
+    const appScriptsAPI2 =
+      'https://script.google.com/macros/s/AKfycbzqRyCdqaYXK0JlUdIlu75fn73LDR2VrdTCn51Q9zg-MEHdmq9EhvtllXl79RyuDXPjIg/exec';
 
-        const dados = new URLSearchParams()
-        dados.append("razaoSocial", razaoSocial)
-        dados.append("data", data)
-        dados.append("email", email)
-        dados.append("valorObs", valorObs)
+    const dados = new URLSearchParams();
+    dados.append('razaoSocial', razaoSocial);
+    dados.append('data', data);
+    dados.append('email', email);
+    dados.append('valorObs', valorObs);
 
-        fetch(appScriptsAPI, {
-            method: "POST",
-            body: dados
-        })
-            .then(response => response.text())
-            .then(response => {
-                if(response === "Sucess"){
-                    alert("Formulário enviado com sucesso!")
-                    formulario.reset()
-                    quill.setContents([])
-                } else {
-                    alert("ERRO! Tente novamente.")
-                }
-            })
-            .catch(error => {
-                console.error("Erro: ", error)
-                alert("Erro na conexão com o DB")
-            })
+    Promise.all([
+      fetch(appScriptsAPI1, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: dados,
+      }).then((response) => response.text()),
 
-            return true
-    }
+      fetch(appScriptsAPI2, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: dados,
+      }).then((response) => response.text()),
+    ])
+      .then(([response1, response2]) => {
+        if (response1 === 'Sucess' && response2 === 'Sucess') {
+          alert('Formulário enviado com sucesso para ambas as bases!');
+          formulario.reset();
+          quill.setContents([]);
+        } else {
+          alert('ERRO em uma ou mais bases. Tente novamente.');
+        }
+      })
+      .catch((error) => {
+        console.error('Erro: ', error);
+        alert('Erro na conexão com uma das bases de dados');
+      });
+
+    return true;
+  }
 }
 
-const botao = document.querySelector(".btn")
+const botao = document.querySelector('.btn');
 
-botao.addEventListener("click", (e) => {
-    e.preventDefault()
-    enviarDados()
-})
+botao.addEventListener('click', (e) => {
+  e.preventDefault();
+  enviarDados();
+});
