@@ -40,16 +40,12 @@ function enviarDados() {
         method: 'POST',
         mode: 'no-cors',
         body: dados,
-      }).then((response) => response.text()),
+      }),
     ])
-      .then(([response1, response2]) => {
-        if (response1 === 'Sucess' && response2 === 'Sucess') {
-          alert('Formulário enviado com sucesso para ambas as bases!');
-          formulario.reset();
-          quill.setContents([]);
-        } else {
-          alert('ERRO em uma ou mais bases. Tente novamente.');
-        }
+      .then(() => {
+        alert('Formulário enviado com sucesso para ambas as bases!');
+        formulario.reset();
+        quill.setContents([]);
       })
       .catch((error) => {
         console.error('Erro: ', error);
