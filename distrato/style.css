@@ -37,7 +37,7 @@ h1 > strong{
 
 .sec-form{
     width: 590px;
-    height: 470px;
+    height: 550px;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -101,7 +101,7 @@ div.ql-snow span button svg{
 .section-image{
     background-color: #fefefe;
     width: 500px;
-    height: 470px;
+    height: 550px;
     display: flex;
     align-items: center;
     border-radius: 0 2rem 0 0;
@@ -115,4 +115,10 @@ picture img{
 
 picture img:hover{
     transform: scale(.94);
+}
+
+.cod-name{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
 }
