@@ -2,6 +2,20 @@ var quill = new Quill('#editor-container', {
   theme: 'snow',
 });
 
+$(document).ready(function () {
+  $('#cnpj-empresa').mask('00.000.000/0000-00');
+});
+
+const codigoEmpresa = document.getElementById('codigo');
+codigoEmpresa.addEventListener('input', (e) => {
+  let valor = e.target.value.replace(/\D/g, '');
+  if (valor.length > 4) {
+    valor = valor.slice(0, 4);
+  }
+
+  e.target.value = valor;
+});
+
 function enviarDados() {
   const formulario = document.getElementById('formulario');
   const razaoSocial = document
@@ -9,13 +23,30 @@ function enviarDados() {
     .value.toUpperCase();
   const dataEncerramento = document.getElementById('data').value;
   const email = document.getElementById('email').value.toLowerCase();
-  const valorObs = quill.root.innerHTML;
+  const cnpj = document.getElementById('cnpj-empresa').value;
+  let valorObs = quill.root.innerHTML;
+  const codigo = document.getElementById('codigo').value;
 
   const [ano, mes, dia] = dataEncerramento.split('-');
   const data = `${dia}/${mes}/${ano}`;
 
-  if (razaoSocial.trim() === '' || data.trim() === '' || email.trim() === '') {
-    alert('Faltam dados. Tente novamente!!');
+  if (valorObs === '<p><br></p>') {
+    valorObs = '';
+  }
+
+  if (
+    razaoSocial.trim() === '' ||
+    data.trim() === '' ||
+    email.trim() === '' ||
+    codigo.trim() === ''
+  ) {
+    alert('[ERRO] Faltam dados. Tente novamente!!');
+    return false;
+  } else if (cnpj.length !== 18) {
+    alert('[ERRO] Campo CNPJ faltam dígitos!');
+    return false;
+  } else if (codigo.trim().length < 4) {
+    alert('[ERRO] Código precisa estar no formato 0000');
     return false;
   } else {
     const appScriptsAPI1 =
@@ -24,7 +55,9 @@ function enviarDados() {
       'https://script.google.com/macros/s/AKfycbzqRyCdqaYXK0JlUdIlu75fn73LDR2VrdTCn51Q9zg-MEHdmq9EhvtllXl79RyuDXPjIg/exec';
 
     const dados = new URLSearchParams();
+    dados.append('codigo', codigo);
     dados.append('razaoSocial', razaoSocial);
+    dados.append('cnpj', cnpj);
     dados.append('data', data);
     dados.append('email', email);
     dados.append('valorObs', valorObs);
