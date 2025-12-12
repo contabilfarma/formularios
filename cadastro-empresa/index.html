@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Empresa</title>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    
+
     <link rel="shortcut icon" href="images/logo-contabilfarma1.png" type="image/x-icon">
 
 </head>
+
 <body>
     <h1>Cadastro de Empresa - <strong>Domínio</strong> Sistemas</h1>
     <form method="post" autocomplete="off" id="formulario">
@@ -70,7 +72,7 @@
             <div class="div-certificado">
                 <label for="certificado">Já possui Certificado Digital:</label>
                 <div class="sim">
-                    <input value="Possui Certificado Digital" type="radio" id="possui"  name="certificado-digital" class="certificado" checked>
+                    <input value="Possui Certificado Digital" type="radio" id="possui" name="certificado-digital" class="certificado" checked>
                     <label for="possui">Possui Certificado Digital</label>
                 </div>
                 <div class="nao">
@@ -78,7 +80,7 @@
                     <label for="nao-possui">Não possui Certificado Digital</label>
                 </div>
             </div>
-        <i class="fa-solid fa-arrow-right"></i>
+            <i class="fa-solid fa-arrow-right"></i>
         </div>
         <div class="step">
             <div class="display-grade contatos">
@@ -104,7 +106,7 @@
                         <option value="Jessica Barbosa">Jessica Barbosa</option>
                     </select>
                 </div>
-                 <div class="responsavel-interno-processo">
+                <div class="responsavel-interno-processo">
                     <label for="responsavel-processo">Responsável Processo:</label>
                     <select name="responsavel" id="responsavel-processo">
                         <option value="" selected disabled>Selecione uma das opções</option>
@@ -115,7 +117,7 @@
                         <option value="Thayani Pinheiro">Thayani Pinheiro</option>
                         <option value="Jessica Barbosa">Jessica Barbosa</option>
                     </select>
-                </div>                
+                </div>
             </div>
             <div class="comercial-contador">
                 <div class="responsavel-comercial">
@@ -136,13 +138,13 @@
                 <div class="nao-pertence-grupo">
                     <input value="Sim" type="radio" name="grupo" id="sim" class="grupos">
                     <label for="sim">Sim:</label>
-                    <input id="text-grupo" type="text" placeholder="Qual grupo?" style="width: 100%; margin-left: 10px;" >
+                    <input id="text-grupo" type="text" placeholder="Qual grupo?" style="width: 100%; margin-left: 10px;">
                 </div>
             </div>
             <div class="enveloper">
                 <label for="obs">Observações:</label>
                 <div id="editor-container">
-                
+
                 </div>
             </div>
             <div class="buttons">
@@ -155,10 +157,11 @@
             <div class="bola-style top"></div>
         </picture>
 
-       
+
     </form>
 
 
     <script src="script.js"></script>
 </body>
+
 </html>
