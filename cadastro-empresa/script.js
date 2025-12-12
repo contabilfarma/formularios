@@ -155,26 +155,6 @@ function enviarDados() {
     return false;
   }
 
-  console.log('Dados enviados:', {
-    codigoEmpresa,
-    nomeEmpresa,
-    cnpjEmpresa,
-    responsavelEmpresa,
-    regimeTributario,
-    data,
-    constituida,
-    certificadoDigital,
-    telefoneContato,
-    emailCliente,
-    responsavelInterno,
-    responsavelComercial,
-    grupos,
-    qualGrupo,
-    valorObs,
-    responsavelProcesso,
-    contadorResponsavel,
-  });
-
   const appsScriptAPI =
     'https://script.google.com/macros/s/AKfycbzRFIC5g9vGXhMyOKSkE8SeUzbaZx4wmJlVRNEDDji8bXyn4ZtBsOOtNu3KIETVVvPy/exec';
 
