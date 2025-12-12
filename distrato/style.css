@@ -90,12 +90,17 @@ div.ql-snow span button svg{
     letter-spacing: 3px;
     font-size: 1.1rem;
     color: #fff;
-    transition: .3s linear;
 }
 
-.botao button:hover{
-    background-color: #78f1bd;
-    color: #000;
+
+.botao button:disabled{
+    opacity: .5;
+    cursor: not-allowed;
+    background-color: #cccccc;
+}
+
+.botao button:disabled:hover{
+    color: #ffff;
 }
 
 .section-image{
