@@ -41,12 +41,15 @@ function enviarDados() {
     codigo.trim() === ''
   ) {
     alert('[ERRO] Faltam dados. Tente novamente!!');
+    botao.disabled = false;
     return false;
   } else if (cnpj.length !== 18) {
     alert('[ERRO] Campo CNPJ faltam dígitos!');
+    botao.disabled = false;
     return false;
   } else if (codigo.trim().length < 4) {
     alert('[ERRO] Código precisa estar no formato 0000');
+    botao.disabled = false;
     return false;
   } else {
     const appScriptsAPI1 =
@@ -79,10 +82,12 @@ function enviarDados() {
         alert('Formulário enviado com sucesso para ambas as bases!');
         formulario.reset();
         quill.setContents([]);
+        botao.disabled = false;
       })
       .catch((error) => {
         console.error('Erro: ', error);
         alert('Erro na conexão com uma das bases de dados');
+        botao.disabled = false;
       });
 
     return true;
@@ -93,5 +98,6 @@ const botao = document.querySelector('.btn');
 
 botao.addEventListener('click', (e) => {
   e.preventDefault();
+  e.target.disabled = true;
   enviarDados();
 });
