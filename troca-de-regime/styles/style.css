@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+:root{
+  --cor-principal: #6C63FF;
+  --titulos: #464444;
+  --textos: #242424;
+  --fundo-form: #ffff;
+  --cor-principal-efeitoHover: #5751d4;
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+body{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cor-principal);
+}
+
+img{
+  max-width: 100%;
+}
+
+.body{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: var(--fundo-form);
+  padding: 2rem;
+  border-radius: 5px;
+  gap: 2rem;
+  align-items: center;
+}
+
+.body form{
+  grid-column: 1 / 2;
+  border-right: 1px solid var(--titulos);
+  padding-right: 3rem;
+}
+
+.body picture{
+  grid-column: 2 / -1;
+  grid-row: 2 / -1;
+}
+
+h1{
+  color: var(--titulos);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+input, select{
+  display: block;
+  width: 100%;
+  margin: 3px 0 5px 0;
+  padding: .4rem;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid var(--titulos);
+}
+
+input:focus,
+select:focus{
+  border: 2px solid var(--cor-principal);
+}
+
+.section-button-enviar button{
+  background-color: var(--cor-principal);
+  padding: .8rem 2rem;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ffff;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+}
+
+.section-button-enviar button:hover{
+  transform: scale(.99);
+  background-color: var(--cor-principal-efeitoHover);
+}
+
+.info-cliente-grid{
+  display: grid;
+  grid-template-columns: 130px 250px;
+  gap: 1rem;
+}
+
+.section-cnpj{
+  position: relative;
+}
+
+.section-cnpj::after{
+  content: '';
+  width: 40px;
+  height: 40px;
+  right: -50px;
+  bottom: 0;
+  position: absolute;
+  background-image: url('assets/images/search-icon.svg');
+  display: block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  background-color: var(--cor-principal);
+  border-radius: 50%;
+}

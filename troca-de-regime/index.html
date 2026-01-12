@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Troca de Regime Tributário</title>
+
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <section class="body">
+    <form action="" autocomplete="off">
+      <div class="header-form">
+        <h1>Formulário para troca de Regime Tributário</h1>
+      </div>
+      <div class="main-form">
+        <section class="info-cliente-grid">
+          <section class="codigo-cliente">
+            <label for="codigo">Código</label>
+            <input type="text" id="codigo">
+          </section>
+          <section class="section-cnpj">
+            <label for="cnpj">CNPJ</label>
+            <input type="text" id="cnpj">
+          </section>
+        </section>
+        <section class="razao-social">
+          <label for="razaoSocial">Razão Social</label>
+          <input type="text" id="razaoSocial">
+        </section>
+        <section class="regime-tributario">
+          <label for="regime-tributario">Regime que irá migrar</label>
+          <select name="regime-tributario" id="regime-tributario">
+            <option selected disabled value="Selecione uma das opções...">Selecione uma das opções...</option>
+            <option value="Simples Nacioal">Simples Nacioal</option>
+            <option value="Lucro Real">Lucro Real</option>
+            <option value="Lucro Presumido">Lucro Presumido</option>
+          </select>
+        </section>
+        <section class="section-responsavel-processo">
+          <label for="responsavel-pelo-processo">Responsável pelo processo</label>
+          <select name="responsavel-pelo-processo" id="responsavel-pelo-processo">
+            <option selected disabled value="Selecione uma das opções...">Selecione uma das opções...</option>
+            <option value="Amanda Amorim">Amanda Amorim</option>
+            <option value="Maria Eduarda Carvalho">Maria Eduarda Carvalho</option>
+          </select>
+        </section>
+        <section class="section-button-enviar">
+          <button>Enviar E-mail</button>
+        </section>
+      </div>
+    </form>
+    <picture>
+      <img src="assets/images/imagem-principal.svg" alt="Imagem Principal">
+    </picture>
+  </section>
+</body>
+
+</html>
