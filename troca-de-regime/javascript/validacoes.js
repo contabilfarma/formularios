@@ -98,7 +98,7 @@ btnBuscar.addEventListener('click', async () => {
 
     if (!response.ok) {
       if (response.status === 404) {
-        throw new Error('CNPJ não encontrado na base de dados');
+        throw new Error('CNPJ não encontrado');
       } else if (response.status === 429) {
         throw new Error(
           'Limite de requisições atingido. Aguarde 1 minuto e tente novamente ou digite a razão social manualmente.',
@@ -114,7 +114,6 @@ btnBuscar.addEventListener('click', async () => {
       inputRazaoSocial.value = data.razao_social;
       // Salva no cache para uso futuro
       setCachedCNPJ(cnpj, data);
-      alert('Razão social encontrada com sucesso!');
     } else {
       alert('CNPJ encontrado, mas razão social não disponível');
     }
