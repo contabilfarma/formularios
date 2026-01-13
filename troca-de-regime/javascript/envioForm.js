@@ -21,24 +21,27 @@ botaoEnviar.addEventListener('click', async (e) => {
 async function envioFormulario() {
   const newData = data.value.split('-');
   const dataFormatada = `${newData[2]}/${newData[1]}/${newData[0]}`;
+  const razaoSocialFormatada = razaoSocial.value.toUpperCase()
+  
   if (
     codigo.value.trim() === '' ||
     cnpj.value.trim().length !== 18 ||
-    razaoSocial.value.trim() === '' ||
+    razaoSocialFormatada.trim() === '' ||
     novoRegime.value.trim() === 'Selecione uma das opções...' ||
     responsavelInterno.value.trim() === 'Selecione uma das opções...' ||
     dataFormatada === 'undefined/undefined/'
   ) {
     alert('[ERRO] Verifique se todos os campos foram preenchidos');
+    
     return false;
   }
 
-  // const formData = new URLSearchParams();
-  // formData.append('codigo', codigo.value);
-  // formData.append('cnpj', cnpj.value);
-  // formData.append('razaoSocial', razaoSocial.value);
-  // formData.append('novoRegime', novoRegime.value);
-  // formData.append('responsavelInterno', responsavelInterno.value);
+  const formData = new URLSearchParams();
+  formData.append('codigo', codigo.value);
+  formData.append('cnpj', cnpj.value);
+  formData.append('razaoSocial', razaoSocial.value);
+  formData.append('novoRegime', novoRegime.value);
+  formData.append('responsavelInterno', responsavelInterno.value);
 
   try {
     await fetch(
@@ -48,7 +51,7 @@ async function envioFormulario() {
         body: new URLSearchParams({
           codigo: codigo.value,
           cnpj: cnpj.value,
-          razaoSocial: razaoSocial.value,
+          razaoSocial: razaoSocialFormatada.value,
           novoRegime: novoRegime.value,
           responsavelInterno: responsavelInterno.value,
           dataFormatada: dataFormatada,
