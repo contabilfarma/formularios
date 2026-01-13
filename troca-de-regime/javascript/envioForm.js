@@ -6,8 +6,6 @@ const novoRegime = document.getElementById('regime-tributario');
 const responsavelInterno = document.getElementById('responsavel-pelo-processo');
 const data = document.getElementById('data');
 const form = document.getElementById('formulario');
-const newData = data.value.split('-');
-const dataFormatada = `${newData[2]}/${newData[1]}/${newData[0]}`;
 
 botaoEnviar.addEventListener('click', async (e) => {
   e.preventDefault();
@@ -21,6 +19,8 @@ botaoEnviar.addEventListener('click', async (e) => {
 });
 
 async function envioFormulario() {
+  const newData = data.value.split('-');
+  const dataFormatada = `${newData[2]}/${newData[1]}/${newData[0]}`;
   if (
     codigo.value.trim() === '' ||
     cnpj.value.trim().length !== 18 ||
