@@ -85,47 +85,78 @@ btnBuscar.addEventListener('click', async () => {
   btnBuscar.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
   lastRequestTime = now;
 
-  try {
-    const response = await fetch(
-      `https://brasilapi.com.br/api/cnpj/v1/${cnpj}`,
-      {
+  // Lista de APIs para tentar em ordem
+  const apis = [
+    {
+      url: `https://brasilapi.com.br/api/cnpj/v1/${cnpj}`,
+      name: 'BrasilAPI',
+    },
+    {
+      url: `https://publica.cnpj.ws/cnpj/${cnpj}`,
+      name: 'CNPJ.ws',
+    },
+    {
+      url: `https://receitaws.com.br/v1/cnpj/${cnpj}`,
+      name: 'ReceitaWS',
+    },
+  ];
+
+  let lastError = null;
+  let success = false;
+
+  // Tenta cada API em sequência
+  for (const api of apis) {
+    try {
+      console.log(`Tentando ${api.name}...`);
+
+      const response = await fetch(api.url, {
         method: 'GET',
         headers: {
           Accept: 'application/json',
         },
-      },
-    );
+      });
 
-    if (!response.ok) {
-      if (response.status === 404) {
-        throw new Error('CNPJ não encontrado');
-      } else if (response.status === 429) {
-        throw new Error(
-          'Limite de requisições atingido. Aguarde 1 minuto e tente novamente ou digite a razão social manualmente.',
-        );
-      } else {
-        throw new Error(`Erro ao buscar CNPJ: ${response.status}`);
+      if (!response.ok) {
+        if (response.status === 404) {
+          throw new Error('CNPJ não encontrado');
+        } else if (response.status === 429) {
+          throw new Error('Limite de requisições atingido');
+        } else {
+          throw new Error(`Erro ${response.status}`);
+        }
       }
-    }
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (data.razao_social) {
-      inputRazaoSocial.value = data.razao_social;
-      // Salva no cache para uso futuro
-      setCachedCNPJ(cnpj, data);
-    } else {
-      alert('CNPJ encontrado, mas razão social não disponível');
+      // Normaliza os diferentes formatos de resposta
+      let razaoSocial =
+        data.razao_social || data.nome || data.company?.name || '';
+
+      if (razaoSocial) {
+        inputRazaoSocial.value = razaoSocial;
+        setCachedCNPJ(cnpj, { razao_social: razaoSocial });
+        alert(`Razão social encontrada com sucesso via ${api.name}!`);
+        success = true;
+        break;
+      } else {
+        throw new Error('Razão social não disponível');
+      }
+    } catch (error) {
+      console.warn(`${api.name} falhou:`, error);
+      lastError = error;
+      // Continua para a próxima API
     }
-  } catch (error) {
-    alert(
-      error.message ||
-        'Erro ao buscar CNPJ. Verifique sua conexão com a internet.',
-    );
-    console.error('Erro detalhado:', error);
-  } finally {
-    // Restaura o botão
-    btnBuscar.disabled = false;
-    btnBuscar.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i>';
   }
+
+  if (!success) {
+    alert(
+      lastError?.message ||
+        'Não foi possível buscar o CNPJ. Digite a razão social manualmente.',
+    );
+    console.error('Todas as APIs falharam. Último erro:', lastError);
+  }
+
+  // Restaura o botão
+  btnBuscar.disabled = false;
+  btnBuscar.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i>';
 });
