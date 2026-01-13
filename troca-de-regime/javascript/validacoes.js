@@ -135,7 +135,6 @@ btnBuscar.addEventListener('click', async () => {
       if (razaoSocial) {
         inputRazaoSocial.value = razaoSocial;
         setCachedCNPJ(cnpj, { razao_social: razaoSocial });
-        alert(`Razão social encontrada com sucesso via ${api.name}!`);
         success = true;
         break;
       } else {
