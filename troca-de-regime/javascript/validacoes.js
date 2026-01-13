@@ -42,3 +42,4 @@ btnBuscar.addEventListener('click', async () => {
     console.error(error);
   }
 });
+
