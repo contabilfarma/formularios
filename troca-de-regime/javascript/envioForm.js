@@ -4,7 +4,10 @@ const cnpj = document.getElementById('cnpj');
 const razaoSocial = document.getElementById('razaoSocial');
 const novoRegime = document.getElementById('regime-tributario');
 const responsavelInterno = document.getElementById('responsavel-pelo-processo');
+const data = document.getElementById('data');
 const form = document.getElementById('formulario');
+const newData = data.value.split('-');
+const dataFormatada = `${newData[2]}/${newData[1]}/${newData[0]}`;
 
 botaoEnviar.addEventListener('click', async (e) => {
   e.preventDefault();
@@ -23,7 +26,8 @@ async function envioFormulario() {
     cnpj.value.trim().length !== 18 ||
     razaoSocial.value.trim() === '' ||
     novoRegime.value.trim() === 'Selecione uma das opções...' ||
-    responsavelInterno.value.trim() === 'Selecione uma das opções...'
+    responsavelInterno.value.trim() === 'Selecione uma das opções...' ||
+    dataFormatada === 'undefined/undefined/'
   ) {
     alert('[ERRO] Verifique se todos os campos foram preenchidos');
     return false;
@@ -47,13 +51,16 @@ async function envioFormulario() {
           razaoSocial: razaoSocial.value,
           novoRegime: novoRegime.value,
           responsavelInterno: responsavelInterno.value,
+          dataFormatada: dataFormatada,
         }),
         mode: 'no-cors',
       },
     );
 
     alert('Resposta enviada com sucesso!!');
-    form.reset();
+    setTimeout(() => {
+      window.location.reload();
+    }, 900);
     return true;
   } catch (error) {
     console.error(error);
