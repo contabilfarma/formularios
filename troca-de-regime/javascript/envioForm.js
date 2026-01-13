@@ -33,12 +33,12 @@ async function envioFormulario() {
     return false;
   }
 
-  const formData = new URLSearchParams();
-  formData.append('codigo', codigo.value);
-  formData.append('cnpj', cnpj.value);
-  formData.append('razaoSocial', razaoSocial.value);
-  formData.append('novoRegime', novoRegime.value);
-  formData.append('responsavelInterno', responsavelInterno.value);
+  // const formData = new URLSearchParams();
+  // formData.append('codigo', codigo.value);
+  // formData.append('cnpj', cnpj.value);
+  // formData.append('razaoSocial', razaoSocial.value);
+  // formData.append('novoRegime', novoRegime.value);
+  // formData.append('responsavelInterno', responsavelInterno.value);
 
   try {
     await fetch(
