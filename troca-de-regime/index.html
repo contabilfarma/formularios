@@ -7,11 +7,13 @@
   <title>Troca de Regime Tributário</title>
 
   <link rel="stylesheet" href="styles/style.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
   <section class="body">
-    <form action="" autocomplete="off">
+    <form action="" autocomplete="off" id="formulario">
       <div class="header-form">
         <h1>Formulário para troca de Regime Tributário</h1>
       </div>
@@ -19,16 +21,21 @@
         <section class="info-cliente-grid">
           <section class="codigo-cliente">
             <label for="codigo">Código</label>
-            <input type="text" id="codigo">
+            <input type="text" id="codigo" placeholder="0000">
           </section>
           <section class="section-cnpj">
             <label for="cnpj">CNPJ</label>
-            <input type="text" id="cnpj">
+            <input type="text" id="cnpj" placeholder="00.000.000/0000-00">
+          </section>
+          <section class="icon-search" title="Buscar CNPJ">
+            <button type="button" id="buscarCnpj">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
           </section>
         </section>
         <section class="razao-social">
           <label for="razaoSocial">Razão Social</label>
-          <input type="text" id="razaoSocial">
+          <input type="text" id="razaoSocial" placeholder="Nome/Razão Social da empresa">
         </section>
         <section class="regime-tributario">
           <label for="regime-tributario">Regime que irá migrar</label>
@@ -56,6 +63,11 @@
       <img src="assets/images/imagem-principal.svg" alt="Imagem Principal">
     </picture>
   </section>
+
+
+  <script src="https://unpkg.com/imask"></script>
+  <script src="javascript/validacoes.js"></script>
+  <script src="javascript/envioForm.js"></script>
 </body>
 
 </html>
