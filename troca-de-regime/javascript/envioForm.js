@@ -27,38 +27,37 @@ async function envioFormulario() {
   ) {
     alert('[ERRO] Verifique se todos os campos foram preenchidos');
     return false;
-  } else {
-    const appsScriptAPI =
-      'https://script.google.com/macros/s/AKfycbxYzW9X2ScWakmI8Uzs5UeHV-1lKmueTkjeZtlhXgByxnppp3qLeGPU0frdmTY32D7H/exec';
+  }
 
-    const formData = new URLSearchParams();
-    formData.append('codigo', codigo.value);
-    formData.append('cnpj', cnpj.value);
-    formData.append('razaoSocial', razaoSocial.value);
-    formData.append('novoRegime', novoRegime.value);
-    formData.append('responsavelInterno', responsavelInterno.value);
+  const formData = new URLSearchParams();
+  formData.append('codigo', codigo.value);
+  formData.append('cnpj', cnpj.value);
+  formData.append('razaoSocial', razaoSocial.value);
+  formData.append('novoRegime', novoRegime.value);
+  formData.append('responsavelInterno', responsavelInterno.value);
 
-    try {
-      const response = await fetch(appsScriptAPI, {
+  try {
+    await fetch(
+      'https://script.google.com/macros/s/AKfycbxYzW9X2ScWakmI8Uzs5UeHV-1lKmueTkjeZtlhXgByxnppp3qLeGPU0frdmTY32D7H/exec',
+      {
         method: 'POST',
-        body: formData,
-        mode: 'no-cors'
-      });
+        body: new URLSearchParams({
+          codigo: codigo.value,
+          cnpj: cnpj.value,
+          razaoSocial: razaoSocial.value,
+          novoRegime: novoRegime.value,
+          responsavelInterno: responsavelInterno.value,
+        }),
+        mode: 'no-cors',
+      },
+    );
 
-      const texto = await response.text();
-
-      if (texto === 'Success') {
-        alert('Resposta enviada com sucesso!!');
-        form.requestFullscreen();
-        return true;
-      } else {
-        alert('[ERRO] ' + texto);
-        return false;
-      }
-    } catch (error) {
-      console.error('[ERRO]: ', error);
-      alert('[ERRO] Conexão perdida com o Data Base. Tente novamente!');
-      return false;
-    }
+    alert('Resposta enviada com sucesso!!');
+    form.reset();
+    return true;
+  } catch (error) {
+    console.error(error);
+    alert('[ERRO] Falha ao enviar dados');
+    return false;
   }
 }
